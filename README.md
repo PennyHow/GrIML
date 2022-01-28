@@ -6,11 +6,13 @@ A repository for all project-related materials, funded under the ESA Living Plan
 
 ## Background
 
-Sea level is predicted to rise drastically by 2100, with significant contribution from the melting of the Greenland Ice Sheet. In these predictions, melt runoff is assumed to contribute directly to sea level change, with little consideration for meltwater storage at the terrestrial margin of the ice sheet. 
+<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/greenland_iml_01.jpg?raw=true" alt="Unnamed ice marginal lake in SW Greenland" width="250" align="right">
 
-In 2017, 3347 ice marginal lakes were identified in Greenland along the ice margin (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>). Globally, these ice marginal lakes hold up to 0.43 mm of sea level equivalent, which could have a marked impact on future predictions (<a href="https://www.nature.com/articles/s41558-020-0855-4">Shugar et al., 2021</a>). Therefore, they need to be monitored to understand how changes in ice marginal lake water storage affect melt contribution, and how their dynamics evolve under a changing climate.
+Sea level is predicted to rise drastically by 2100, with significant contribution from the melting of the Greenland Ice Sheet (GrIS). In these predictions, melt runoff is assumed to contribute directly to sea level change, with little consideration for meltwater storage at the terrestrial margin of the ice sheet; such as ice marginal lakes (see example of an unnamed ice marginal lake on the SW of GrIS that is 88.5 sq km). 
 
-<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/greenland_iml_01.jpg?raw=true" alt="Unnamed ice marginal lake in SW Greenland" width="600" align="aligncenter" /><br> *An example of an ice marginal lake in Greenland. This particular lake is an unnamed ice marginal lake (88.5 sq km according to the 2017 inventory) on the SW margin of the Greenland Ice Sheet, fed from various glacial outlets*
+In 2017, 3347 ice marginal lakes were identified in Greenland along the ice margin (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>, see map figure for all mapped lakes). Globally, these ice marginal lakes hold up to 0.43 mm of sea level equivalent, which could have a marked impact on future predictions (<a href="https://www.nature.com/articles/s41558-020-0855-4">Shugar et al., 2021</a>). Therefore, they need to be monitored to understand how changes in ice marginal lake water storage affect melt contribution, and how their dynamics evolve under a changing climate.
+
+<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-021-83509-1/MediaObjects/41598_2021_83509_Fig1_HTML.png?raw=true" align="right" width="300">
 
 **GrIML** proposes to examine ice marginal lake changes across Greenland using a multi-sensor and multi-method remote sensing approach to better address their influence on sea level contribution forecasting.
 
@@ -20,15 +22,14 @@ In 2017, 3347 ice marginal lakes were identified in Greenland along the ice marg
 
 3. The findings from this work will be validated against in situ observations - namely hydrological measurements and terrestrial time-lapse images - to evaluate whether the remote sensing workflow adequately captures ice marginal lake dynamics
 
-<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-021-83509-1/MediaObjects/41598_2021_83509_Fig1_HTML.png?raw=true" width="500" />The 2017 ice marginal lake inventory of Greenland. Each point represents a lake - blue points indicate a lake adjacent to the ice sheet margin, and orange points are lakes that share a margin with either an ice cap or mountain glacier (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>)
 
 ## Methodology
 
-Ice marginal lakes will be detected using a remote sensing approach, based on offline workflows developed within the <a href="https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519">ESA Glaciers CCI (Option 6, An Inventory of Ice-Marginal Lakes in Greenland)</a>. Lake extents were defined through a multi-sensor approach, using multi-spectral indices classification from Sentinel-2 optical imagery, backscatter classification from Sentinel-1 SAR (synthetic aperture radar) imagery, and sink detection from ArcticDEM digital elevation models (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>). 
+Ice marginal lakes will be detected using a remote sensing approach, based on offline workflows developed within the <a href="https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519">ESA Glaciers CCI</a> (Option 6, An Inventory of Ice-Marginal Lakes in Greenland) (see workflow below). Lake extents were defined through a multi-sensor approach, using multi-spectral indices classification from Sentinel-2 optical imagery, backscatter classification from Sentinel-1 SAR (synthetic aperture radar) imagery, and sink detection from ArcticDEM digital elevation models (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>). 
+
+<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/griml_workflow.png?raw=true" alt="The proposed GrIML workflow." width="1500" align="aligncenter" />
 
 The intent in GrIML is to build upon this pre-existing workflow with new and innovative solutions to form a unified and automated processing chain, with the option to integrate it into a cloud processing platform for efficient big data analysis. 
-
-<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/griml_workflow.png?raw=true" alt="The proposed GrIML workflow." width="1500" align="aligncenter" /><br> *The proposed GrIML programming workflow*
 
 These developments will alleviate the current challenges associated with data-heavy processing (i.e. multi-sensor integration and data retrieval), and ensure detection accuracy with a merged and collated set of established methodologies. These developments will include:
 
