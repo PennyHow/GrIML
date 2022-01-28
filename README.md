@@ -1,2 +1,47 @@
-# GrIML
-Repo for ice-marginal lake work
+# Investigating Greenland's ice marginal lakes under a changing climate (GrIML)
+
+A repository for all project-related materials, funded under the ESA Living Planet Fellowship.
+
+**Project aim:** To examine ice marginal lake changes across Greenland using a multi-method and multi-sensor remote sensing approach, refined with in situ validation.
+
+## Background
+
+Sea level is predicted to rise drastically by 2100, with significant contribution from the melting of the Greenland Ice Sheet. In these predictions, melt runoff is assumed to contribute directly to sea level change, with little consideration for meltwater storage at the terrestrial margin of the ice sheet. 
+
+In 2017, 3347 ice marginal lakes were identified in Greenland along the ice margin (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>). Globally, these ice marginal lakes hold up to 0.43 mm of sea level equivalent, which could have a marked impact on future predictions (<a href="https://www.nature.com/articles/s41558-020-0855-4">Shugar et al., 2021</a>). Therefore, they need to be monitored to understand how changes in ice marginal lake water storage affect melt contribution, and how their dynamics evolve under a changing climate.
+
+<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/greenland_iml_01.jpg?raw=true" alt="Unnamed ice marginal lake in SW Greenland" width="600" align="aligncenter" /><br> *An example of an ice marginal lake in Greenland. This particular lake is an unnamed ice marginal lake (88.5 sq km according to the 2017 inventory) on the SW margin of the Greenland Ice Sheet, fed from various glacial outlets*
+
+**GrIML** proposes to examine ice marginal lake changes across Greenland using a multi-sensor and multi-method remote sensing approach to better address their influence on sea level contribution forecasting.
+
+1. Greenland-wide inventories of ice marginal lakes will be generated for selected years during the satellite era, building upon established classification methods in a unified cloud processing workflow
+
+2. Detailed time-series analysis will be conducted on chosen ice marginal lakes to assess changes in their flooding dynamics; focusing on lakes with societal and scientific importance
+
+3. The findings from this work will be validated against in situ observations - namely hydrological measurements and terrestrial time-lapse images - to evaluate whether the remote sensing workflow adequately captures ice marginal lake dynamics
+
+<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-021-83509-1/MediaObjects/41598_2021_83509_Fig1_HTML.png?raw=true" width="500" />The 2017 ice marginal lake inventory of Greenland. Each point represents a lake - blue points indicate a lake adjacent to the ice sheet margin, and orange points are lakes that share a margin with either an ice cap or mountain glacier (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>)
+
+## Methodology
+
+Ice marginal lakes will be detected using a remote sensing approach, based on offline workflows developed within the <a href="https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519">ESA Glaciers CCI (Option 6, An Inventory of Ice-Marginal Lakes in Greenland)</a>. Lake extents were defined through a multi-sensor approach, using multi-spectral indices classification from Sentinel-2 optical imagery, backscatter classification from Sentinel-1 SAR (synthetic aperture radar) imagery, and sink detection from ArcticDEM digital elevation models (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>). 
+
+The intent in GrIML is to build upon this pre-existing workflow with new and innovative solutions to form a unified and automated processing chain, with the option to integrate it into a cloud processing platform for efficient big data analysis. 
+
+<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/griml_workflow.png?raw=true" alt="The proposed GrIML workflow." width="1500" align="aligncenter" /><br> *The proposed GrIML programming workflow*
+
+These developments will alleviate the current challenges associated with data-heavy processing (i.e. multi-sensor integration and data retrieval), and ensure detection accuracy with a merged and collated set of established methodologies. These developments will include:
+
+1. Incorporation of the multi-spectral indices classification, backscatter classification, and sink detection methods into one unified processing chain
+
+2. Integration of image analysis from additional sensors into the processing chain, such as Landsat 4-8
+
+3. Automisation of post-processing filtering to remove detached water bodies and misclassifications, using the already-existing 2017 inventory (How et al., 2021) as a training dataset to automatically match and retain existing lakes 
+
+4. Adaptation of the workflow for easy transference between offline and cloud processing platforms
+
+## Links
+
+- ESA project outline (coming soon)
+- <a href="https://pennyhow.github.io/blog/investigating-griml/">GrIML project description</a>
+- 2017 ice marginal lake inventory <a href="https://www.nature.com/articles/s41598-021-83509-1">Scientific Reports paper</a> and <a href="https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519">dataset</a>
