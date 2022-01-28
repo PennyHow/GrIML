@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Wed Jan  5 11:57:31 2022
+GrIML ice marginal lake (IML) data compiling module
 
-@author: pho
+@author: Penelope How
 """
 # import process
 # import analyse

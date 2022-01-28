@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Wed Jan  5 12:52:44 2022
+GrIML ice marginal lake data analysis module
 
-@author: pho
+@author: Penelope How
 """
 
 import fiona
