@@ -25,6 +25,6 @@ By having the option to retrieve data from URL or SentinelHub, I envisage that t
 
 Key Python packages that will be used in the offline components of the workflow:
 
-+ [xarray](https://xarray.pydata.org/en/stable/) -- for large data handling and parralel processing
-+ [rasterio](https://rasterio.readthedocs.io/en/latest/) -- for raster processing
-+ [geopandas](https://geopandas.org/en/stable/) -- for vector data handling
++ [xarray](https://xarray.pydata.org/en/stable/) - for large data handling and parralel processing
++ [rasterio](https://rasterio.readthedocs.io/en/latest/) - for raster processing
++ [geopandas](https://geopandas.org/en/stable/) - for vector data handling

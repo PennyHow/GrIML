@@ -6,15 +6,15 @@ A repository for all project-related materials, funded under the ESA Living Plan
 
 ## Background
 
-<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/greenland_iml_01.jpg?raw=true" alt="Unnamed ice marginal lake in SW Greenland" width="250" align="right">
+<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/greenland_iml_01.jpg?raw=true" alt="Unnamed ice marginal lake in SW Greenland" width="350" align="right">
 
 Sea level is predicted to rise drastically by 2100, with significant contribution from the melting of the Greenland Ice Sheet (GrIS). In these predictions, melt runoff is assumed to contribute directly to sea level change, with little consideration for meltwater storage at the terrestrial margin of the ice sheet; such as ice marginal lakes (see example of an unnamed ice marginal lake on the SW of GrIS that is 88.5 sq km). 
 
 In 2017, 3347 ice marginal lakes were identified in Greenland along the ice margin (<a href="https://www.nature.com/articles/s41598-021-83509-1">How et al., 2021</a>, see map figure for all mapped lakes). Globally, these ice marginal lakes hold up to 0.43 mm of sea level equivalent, which could have a marked impact on future predictions (<a href="https://www.nature.com/articles/s41558-020-0855-4">Shugar et al., 2021</a>). Therefore, they need to be monitored to understand how changes in ice marginal lake water storage affect melt contribution, and how their dynamics evolve under a changing climate.
 
-<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-021-83509-1/MediaObjects/41598_2021_83509_Fig1_HTML.png?raw=true" align="right" width="300">
-
 **GrIML** proposes to examine ice marginal lake changes across Greenland using a multi-sensor and multi-method remote sensing approach to better address their influence on sea level contribution forecasting.
+
+<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-021-83509-1/MediaObjects/41598_2021_83509_Fig1_HTML.png?raw=true" align="left" width="400">
 
 1. Greenland-wide inventories of ice marginal lakes will be generated for selected years during the satellite era, building upon established classification methods in a unified cloud processing workflow
 
