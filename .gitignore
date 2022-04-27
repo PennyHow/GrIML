@@ -1,2 +1,15 @@
 
 *.tif
+other/out/*
+other/datasets/*
+other/old/*
+src/examples/getHagenBrae.py
+src/examples/analyse.py
+src/examples/getHagenBrae_dask.py
+src/examples/getMargin.py
+src/examples/getMarginGIMP.py
+src/examples/getTimeSeries.py
+src/examples/margin.py
+src/examples/process_old.py
+src/examples/sar_water.py
+*.docx
