@@ -1,5 +1,6 @@
 # The GrIML python package
 
+[![PyPI version](https://badge.fury.io/py/griml.svg)](https://badge.fury.io/py/griml)
 [![Documentation Status](https://readthedocs.org/projects/griml/badge/?version=latest)](https://griml.readthedocs.io/en/latest/?badge=latest)
 
 A GrIML workflow for classifying water bodies from satellite imagery using a multi-sensor, multi-method approach. This workflow is part of the <a href="https://eo4society.esa.int/projects/griml/">ESA GrIML project</a>.
