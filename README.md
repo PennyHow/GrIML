@@ -1,7 +1,6 @@
 # Investigating Greenland's ice marginal lakes under a changing climate (GrIML)
 
-[![PyPI version](https://badge.fury.io/py/griml.svg)](https://badge.fury.io/py/griml)
-[![Documentation Status](https://readthedocs.org/projects/griml/badge/?version=latest)](https://griml.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://badge.fury.io/py/griml.svg)](https://badge.fury.io/py/griml) [![DOI](https://zenodo.org/badge/444752900.svg)](https://zenodo.org/badge/latestdoi/444752900) [![Documentation Status](https://readthedocs.org/projects/griml/badge/?version=latest)](https://griml.readthedocs.io/en/latest/?badge=latest) 
 
 A repository for all project-related materials, funded under the ESA Living Planet Fellowship.
 
