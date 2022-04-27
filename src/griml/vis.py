@@ -300,6 +300,8 @@ def getClassification(ndwi, mndwi, aweish, aweinsh, bright):
                       # ndwi_t, mndwi_t, aweish_t1, aweish_t2, aweinsh_t1, aweinsh_t2, bright_t):  
     '''Generate classification from thresholded multi-spectral indices
     
+    Parameters
+    ----------
     ndwi : ee.Image
         NDWI band
     mndwi : ee.Image
@@ -310,6 +312,11 @@ def getClassification(ndwi, mndwi, aweish, aweinsh, bright):
         AWEInsh band
     bright : ee.Image
         BRIGHT band
+        
+    Returns
+    -------
+    ee.Image
+    	Binary classification image
     '''
     classified =  ee.Image().expression("(BRIGHT > 5000) ? 0"
                                         ": (NDWI > 0.3) ? 1 "

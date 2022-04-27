@@ -5,14 +5,23 @@ GrIML process module
 """
 
 import ee
-from retrieve import getScenes, getScene, getInt, getSmooth, getMosaic, \
-    getMean, maskImage, splitBBox, getFeatures, getFeaturesSplit
-from sar import filterSARscenes, classifySARimage
-from vis import filterS2scenes, maskS2clouds,  filterLSscenes, maskL8clouds, \
-    maskL7clouds, getNDWI, getMNDWI, getAWEISH, getAWEINSH, getBRIGHT, \
-    getClassification
-from dem import getElevation, getSinks 
 
+try:
+    from griml.retrieve import getScenes, getScene, getInt, getSmooth, getMosaic, \
+        getMean, maskImage, splitBBox, getFeatures, getFeaturesSplit
+    from griml.sar import filterSARscenes, classifySARimage
+    from griml.vis import filterS2scenes, maskS2clouds,  filterLSscenes, maskL8clouds, \
+        maskL7clouds, getNDWI, getMNDWI, getAWEISH, getAWEINSH, getBRIGHT, \
+        getClassification
+    from griml.dem import getElevation, getSinks 
+except:
+    from retrieve import getScenes, getScene, getInt, getSmooth, getMosaic, \
+        getMean, maskImage, splitBBox, getFeatures, getFeaturesSplit
+    from sar import filterSARscenes, classifySARimage
+    from vis import filterS2scenes, maskS2clouds,  filterLSscenes, maskL8clouds, \
+        maskL7clouds, getNDWI, getMNDWI, getAWEISH, getAWEINSH, getBRIGHT, \
+        getClassification
+    from dem import getElevation, getSinks 
 
 class gee(object):
     '''Class object for rigid classification workflows using the 

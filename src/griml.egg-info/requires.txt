@@ -1,7 +1,6 @@
-ee
+earthengine-api
 geopandas
-griml
 numpy
 pandas
 scipy
-shapely
+Shapely
