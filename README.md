@@ -41,7 +41,7 @@ These developments will alleviate the current challenges associated with data-he
 
 ## Links
 
-- ESA project outline (coming soon)
+- ESA <a href="https://eo4society.esa.int/projects/griml/">project outline</a> and <a href="https://eo4society.esa.int/lpf/penelope-how/">fellow information</a>
 
 - Information about the <a href="https://eo4society.esa.int/communities/scientists/living-planet-fellowship/">ESA Living Planet Fellowship</a>
 
