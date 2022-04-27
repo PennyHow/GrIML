@@ -1,3 +1,25 @@
+Metadata-Version: 2.1
+Name: griml
+Version: 0.0.1
+Summary: A workflow for classifying lakes from satellite imagery and compiling lake inventories
+Home-page: https://github.com/PennyHow/GrIML
+Author: Penelope How
+Author-email: pho@geus.dk
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/PennyHow/GrIML/issues
+Keywords: glaciology ice lake ESA
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # Investigating Greenland's ice marginal lakes under a changing climate (GrIML)
 
 [![Documentation Status](https://readthedocs.org/projects/griml/badge/?version=latest)](https://griml.readthedocs.io/en/latest/?badge=latest)
@@ -50,3 +72,5 @@ These developments will alleviate the current challenges associated with data-he
 - <a href="https://pennyhow.github.io/blog/investigating-griml/">GrIML project description</a>
 
 - 2017 ice marginal lake inventory <a href="https://www.nature.com/articles/s41598-021-83509-1">Scientific Reports paper</a> and <a href="https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519">dataset</a>
+
+

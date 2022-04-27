@@ -13,3 +13,12 @@ src/examples/margin.py
 src/examples/process_old.py
 src/examples/sar_water.py
 *.docx
+src/griml/examples/analyse.py
+src/griml/examples/getHagenBrae.py
+src/griml/examples/getHagenBrae_dask.py
+src/griml/examples/getMargin.py
+src/griml/examples/getMarginGIMP.py
+src/griml/examples/getTimeSeries.py
+src/griml/examples/margin.py
+src/griml/examples/process_old.py
+src/griml/examples/sar_water.py
