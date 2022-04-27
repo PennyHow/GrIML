@@ -178,12 +178,66 @@ def resampleS2scenes(scenes):
 
 
 def getNDWI(image, g, vnir):
+    '''Derive NDWI (Normalised Difference Water Index) band
+
+    Parameters
+    ----------
+    image : ee.Image
+        GEE image
+    g : str
+        Green band name
+    vnir : str
+        VNIR band name
+
+    Returns
+    -------
+    ee.Image
+        NDWI image
+    '''
     return image.normalizedDifference([g, vnir]) 
  
 def getMNDWI(image, g, swir1):
+    '''Derive MNDWI (Modified Normalised Difference Water Index) band
+
+    Parameters
+    ----------
+    image : ee.Image
+        GEE image
+    g : str
+        Green band name
+    swir1 : str
+        SWIR band name
+
+    Returns
+    -------
+    ee.Image
+        MNDWI image
+    '''
     return image.normalizedDifference([g, swir1])
 
 def getAWEISH(image, b, g, vnir, swir1, swir2):
+    '''Derive AWEIsh (Automated Water Extraction Index with shadowing) band
+
+    Parameters
+    ----------
+    image : ee.Image
+        GEE image
+    b : str
+        Blue band name
+    g : str
+        Green band name
+    vnir : str
+        VNIR band name
+    swir1 : str
+        SWIR 1 band name
+    swir2 : str
+        SWIR 2 band name
+
+    Returns
+    -------
+    ee.Image
+        AWEIsh image
+    '''
     return image.expression('BLUE + 2.5 * GREEN - 1.5 * (VNIR + SWIR1) - 0.25 * SWIR2',
                             {'BLUE' : image.select(b), 
                             'GREEN' : image.select(g),
@@ -192,6 +246,26 @@ def getAWEISH(image, b, g, vnir, swir1, swir2):
                             'SWIR2' : image.select(swir2)})
 
 def getAWEINSH(image, g, vnir, swir1, swir2):
+    '''Derive AWEInsh (Automated Water Extraction Index without shadowing) band
+
+    Parameters
+    ----------
+    image : ee.Image
+        GEE image
+    g : str
+        Green band name
+    vnir : str
+        VNIR band name
+    swir1 : str
+        SWIR 1 band name
+    swir2 : str
+        SWIR 2 band name
+
+    Returns
+    -------
+    ee.Image
+        AWEInsh image
+    '''
     return image.expression('4.0 * (GREEN - SWIR1) - (0.25 * VNIR + 2.75 * SWIR2)',
                               {'GREEN' : image.select(g),
                               'SWIR1' : image.select(swir1),
@@ -199,12 +273,44 @@ def getAWEINSH(image, g, vnir, swir1, swir2):
                               'SWIR2' : image.select(swir2)})
 
 def getBRIGHT(image, r, g, b):
+    '''Derive BRIGHT (simple RGB ratio) band
+
+    Parameters
+    ----------
+    image : ee.Image
+        GEE image
+    r : str
+        Red band name
+    g : str
+        Green band name
+    b : str
+        Blue band name
+
+    Returns
+    -------
+    ee.Image
+        AWEInsh image
+    '''
     return image.expression('(RED + GREEN + BLUE) / 3',
                             {'BLUE' : image.select(b),
                             'GREEN' : image.select(g),
                             'RED' : image.select(r)})
     
-def getClassification(ndwi, mndwi, aweish, aweinsh, bright):   
+def getClassification(ndwi, mndwi, aweish, aweinsh, bright): 
+                      # ndwi_t, mndwi_t, aweish_t1, aweish_t2, aweinsh_t1, aweinsh_t2, bright_t):  
+    '''Generate classification from thresholded multi-spectral indices
+    
+    ndwi : ee.Image
+        NDWI band
+    mndwi : ee.Image
+        MNDWI band
+    aweish : ee.Image
+        AWEIsh band
+    aweinsh : ee.Image
+        AWEInsh band
+    bright : ee.Image
+        BRIGHT band
+    '''
     classified =  ee.Image().expression("(BRIGHT > 5000) ? 0"
                                         ": (NDWI > 0.3) ? 1 "
                                         ": (MNDWI < 0.1) ? 0 "
