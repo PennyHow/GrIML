@@ -41,7 +41,7 @@ napoleon_google_docstring = False
 napoleon_numpy_docstring = True   
 napoleon_use_ivar = True 
 
-autodoc_mock_imports = ['ee', 'geopandas', 'numpy', 'pandas', 'scipy', 'shapely', 're', 'unittest']	 
+autodoc_mock_imports = ['ee', 'geopandas', 'numpy', 'pandas', 'scipy', 'shapely']	 
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

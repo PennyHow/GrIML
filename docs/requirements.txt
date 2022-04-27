@@ -4,5 +4,3 @@ numpy
 pandas
 scipy
 shapely
-re
-unittest
