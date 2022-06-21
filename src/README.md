@@ -38,7 +38,7 @@ Subject to funding, it is intended to include add-on modules to the workflow, wh
 Key Python packages that will be used in the offline components of the workflow:
 
 + [geopandas](https://geopandas.org/en/stable/) - for vector dataset handling
-+ ['numpy'](https://numpy.org/) - for numerical operations
-+ ['pandas'](https://pandas.pydata.org/) - for dataframe handling
-+ ['scipy'](https://docs.scipy.org/doc/scipy/index.html) - for matrix operations
-+ ['shapely'](https://shapely.readthedocs.io/en/stable/manual.html) - for geometric operations
++ [numpy](https://numpy.org/) - for numerical operations
++ [pandas](https://pandas.pydata.org/) - for dataframe handling
++ [scipy](https://docs.scipy.org/doc/scipy/index.html) - for matrix operations
++ [shapely](https://shapely.readthedocs.io/en/stable/manual.html) - for geometric operations
