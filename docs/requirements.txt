@@ -1,6 +1,5 @@
 ee
 geopandas
-griml
 numpy
 pandas
 scipy

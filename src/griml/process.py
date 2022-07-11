@@ -134,13 +134,13 @@ class gee(object):
         features : list
            List of shapely.geometry.Polygon vector features
        '''
-        try:
-            print('Attempting to retrieve classifications from AOI...')
-            features = getFeatures(classification, scale, self.box) 
-        except:
-            print(f'AOI too big. Attempting to retrieve from {len(self.bbox)}'+
-                  ' split boxes...')
-            features = getFeaturesSplit(classification, scale, self.bbox) 
+        # try:
+        #     print('Attempting to retrieve classifications from AOI...')
+        #     features = getFeatures(classification, scale, self.box) 
+        # except:
+        print(f'AOI too big. Attempting to retrieve from {len(self.bbox)}'+
+              ' split boxes...')
+        features = getFeaturesSplit(classification, scale, self.bbox) 
         return features
     
     

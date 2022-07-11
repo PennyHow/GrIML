@@ -302,8 +302,10 @@ def getFeatures(image, scale, bbox):
     features=[]
     v = getVectors(image, scale, bbox)
     features = extractFeatures(v)  
+    print(f'{len(features)} vector features identified')   
     return features
  
+    
 def getFeaturesSplit(image, scale, bbox):
     features=[]
     for b in range(len(bbox)):

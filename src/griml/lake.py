@@ -191,7 +191,8 @@ def assignID(gdf, col_name='unique_id'):
     return gdf
 
 
-def compileFeatures(feature_list, method_list, collection_list, date_list):
+def compileFeatures(feature_list, method_list, collection_list, date_list,
+                    proj='EPSG:4326'):
     '''Compile features from multiple processings into one geodataframe
 
     Parameters
@@ -215,7 +216,7 @@ def compileFeatures(feature_list, method_list, collection_list, date_list):
         if a is not None:
             
             #Construct geodataframe with basic metadata
-            gdf = gpd.GeoDataFrame(geometry=a, crs='EPSG:4326')
+            gdf = gpd.GeoDataFrame(geometry=a, crs=proj)
             gdf = dissolvePolygons(gdf)
             dfs.append(pd.DataFrame({'geometry': list(gdf.geometry), 
                                      'method': b, 
@@ -226,7 +227,7 @@ def compileFeatures(feature_list, method_list, collection_list, date_list):
     # Construct merged geodataframe
     all_gdf = pd.concat(dfs)
     all_gdf = gpd.GeoDataFrame(all_gdf, geometry=all_gdf.geometry, 
-                               crs='EPSG:4326')
+                               crs=proj)
     return all_gdf
 
 
