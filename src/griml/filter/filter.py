@@ -1,33 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-GrIML processing module playground (experimental)
+GrIML filter vectors
 
 @author: Penelope How
 """
 
+from griml.filter import filter_margin, filter_area
 import geopandas as gpd
 from pathlib import Path
 import glob
 
-
-def filter_area(iml, max_area=0.05):
-    '''Filter lakes by area'''
-    iml['area_sqkm'] = iml['geometry'].area/10**6
-    iml['length_km'] = iml['geometry'].length/1000
-    iml = iml[(iml.area_sqkm >= max_area)]
-    return iml
-
-def filter_margin(iml, margin_buffer):
-    '''Perform spatial join'''
-    iml = gpd.sjoin(iml, margin_buffer, how='left')
-    iml = iml[iml['index_right']==0]
-    iml = iml.drop(columns='index_right')
-
-    # Calculate geometry info
-    iml.reset_index(inplace=True, drop=True)
-    return iml
-    
 
 if __name__ == "__main__": 
     indir = "/home/pho/python_workspace/GrIML/other/iml_2017/vectors/*.shp"   

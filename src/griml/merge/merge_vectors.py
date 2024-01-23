@@ -3,7 +3,9 @@
 """
 Created on Tue Jan 23 13:36:35 2024
 
-@author: pho
+GrIML merge vectors
+
+@author: Penelope How
 """
 import geopandas as gpd
 import pandas as pd
@@ -34,7 +36,7 @@ def merge_vectors(feature_list, method_list, collection_list, date_list,
             
             #Construct geodataframe with basic metadata
             gdf = gpd.GeoDataFrame(geometry=a, crs=proj)
-            gdf = dissolvePolygons(gdf)
+            gdf = _dissolve_vectors(gdf)
             dfs.append(pd.DataFrame({'geometry': list(gdf.geometry), 
                                      'method': b, 
                                      'source': c, 
@@ -48,7 +50,7 @@ def merge_vectors(feature_list, method_list, collection_list, date_list,
     return all_gdf
 
 
-def dissolvePolygons(gdf):
+def _dissolve_vectors(gdf):
     '''Dissolve overlapping polygons in a Pandas GeoDataFrame
 
     Parameters
