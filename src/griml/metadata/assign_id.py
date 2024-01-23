@@ -9,7 +9,20 @@ from scipy.sparse.csgraph import connected_components
 
 def assign_id(gdf, col_name='unique_id'):
     '''Assign unique identification numbers to non-overlapping geometries in
-    geodataframe'''
+    geodataframe
+    
+    Parameters
+    ----------
+    gdf : pandas.GeoDataFrame
+        Vectors to assign identification numbers to
+    col_name : str
+        Column name to assign ID from
+    
+    Returns
+    -------
+    gdf : pandas.GeoDataFrame
+        Vectors with assigned IDs
+    '''
     # Find overlapping geometries
     geoms = gdf['geometry']
     geoms.reset_index(inplace=True, drop=True)        

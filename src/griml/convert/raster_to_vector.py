@@ -5,7 +5,7 @@ Created on Thu Oct  5 14:27:48 2023
 
 GrIML convert rasters to vectors
 
-@author: pho
+@author: Penelope How
 """
 
 import rasterio as rio
@@ -15,7 +15,26 @@ import geopandas as gpd
 import pandas as pd
 
 def raster_to_vector(infile, outfile, proj, band_info, startdate, enddate):
-    '''Convert raster to vector file with geopandas'''
+    '''Convert raster to vector file with geopandas
+    
+    Parameters
+    ----------
+    infile : str
+        Input file location as string
+    outfile : str
+        Output file location as string
+    band_info : int
+        Band number
+    startdate : str
+        Start date 
+    enddate : str
+        End date
+    
+    Returns
+    -------
+    all_gdf : geopandas.GeoDataFrame
+        Converted vectors geodataframe
+    '''
     # Get vectors from bands
     dfs=[]
     for b in band_info:
@@ -37,7 +56,7 @@ def raster_to_vector(infile, outfile, proj, band_info, startdate, enddate):
     
     # Save and return
     all_gdf.to_file(outfile)
-    return all_gdf 
+    return all_gdf f
 
 def _get_band_vectors(infile, band):
     '''Read raster band and extract shapes as polygon vectors'''

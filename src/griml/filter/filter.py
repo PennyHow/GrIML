@@ -11,16 +11,7 @@ import geopandas as gpd
 from pathlib import Path
 import glob
 
-
-if __name__ == "__main__": 
-    indir = "/home/pho/python_workspace/GrIML/other/iml_2017/vectors/*.shp"   
-    
-    infile_margin = "/home/pho/python_workspace/GrIML/other/datasets/ice_margin/gimp_icemask_line_polstereo_simple_buffer.shp"
-    print('Preparing ice margin buffer...')
-    margin_buff = gpd.read_file(infile_margin)   
-    # margin_buff = margin.buffer(500)
-    # margin_buff = gpd.GeoDataFrame(geometry=margin_buff, crs=margin.crs)
-    
+def filter_vectors(indir, margin_buff):
     count=1
     for infile in list(glob.glob(indir)):
         
@@ -38,3 +29,15 @@ if __name__ == "__main__":
         else:
         	print('No vectors present after filter. Moving to next file.')
         count=count+1
+
+
+if __name__ == "__main__": 
+    indir = "/home/pho/python_workspace/GrIML/other/iml_2017/vectors/*.shp"   
+    
+    infile_margin = "/home/pho/python_workspace/GrIML/other/datasets/ice_margin/gimp_icemask_line_polstereo_simple_buffer.shp"
+    print('Preparing ice margin buffer...')
+    margin_buff = gpd.read_file(infile_margin)   
+    # margin_buff = margin.buffer(500)
+    # margin_buff = gpd.GeoDataFrame(geometry=margin_buff, crs=margin.crs)
+    
+    filter_vectors(indir, margin_buff)

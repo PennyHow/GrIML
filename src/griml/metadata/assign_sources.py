@@ -8,7 +8,20 @@ GrIML metadata assignment
 
 def assign_sources(gdf, col_names=['unique_id', 'source']):
     '''Assign source metadata to geodataframe, based on unique lake id and
-    individual source information'''
+    individual source information
+    
+    Parameters
+    ----------
+    gdf : geopandas.GeoDataFrame
+        Vectors to assign sources to
+    col_names : list
+        Column names to assign sources from
+    
+    Returns
+    -------
+    gdf : geopandas.GeoDataFrame
+        Vectors with assigned sources
+    '''
     ids = gdf[col_names[0]].tolist()
     source = gdf[col_names[1]].tolist()
     satellites=[]

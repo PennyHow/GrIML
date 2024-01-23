@@ -8,7 +8,22 @@ GrIML metadata assignment
 
 def assign_names(gdf, gdf_names, distance=500.0):
     '''Assign placenames to geodataframe geometries based on names in another 
-    geodataframe point geometries'''  
+    geodataframe point geometries
+
+    Parameters
+    ----------
+    gdf : pandas.GeoDataFrame
+        Vectors to assign uncertainty to
+    gdf_names : pandas.GeoDataFrame
+        Vector geodataframe with placenames
+    distance : int
+        Distance threshold between a given vector and a placename
+    
+    Returns
+    -------
+    gdf : pandas.GeoDataFrame
+        Vectors with assigned IDs
+    '''  
     placenames = _compile_names(gdf_names)
                                     
     lakename=[]     

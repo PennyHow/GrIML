@@ -5,7 +5,7 @@ Created on Thu Oct  5 14:27:48 2023
 
 GrIML convert rasters to vectors
 
-@author: pho
+@author: Penelope How
 """
 
 from griml.convert import raster_to_vector
@@ -13,6 +13,22 @@ import glob
 from pathlib import Path
 # import numpy as np
 
+def convert(indir, outdir, proj, band_info, startdate, enddate):
+    
+    # Iterate through files
+    count=1
+    for i in indir:
+        print('\n'+str(count) + '. Converting ' + str(Path(i).name))
+        
+        # Convert raster to vector
+        outfile = str(Path(outdir).joinpath(Path(i).stem+'.shp'))
+        raster_to_vector(str(i), outfile, proj, band_info, startdate, enddate)
+        
+        print('Saved to '+str(Path(outfile).name))
+        count=count+1
+        
+    print('Finished')
+    
 if __name__ == "__main__": 
 
     # Define file attributes
@@ -24,17 +40,6 @@ if __name__ == "__main__":
                  {'b_number':3, 'method':'DEM', 'source':'ARCTICDEM'}]
     start='20170701'
     end='20170831'
-    
-    # Iterate through files
-    count=1
-    for i in indir:
-        print('\n'+str(count) + '. Converting ' + str(Path(i).name))
-        
-        # Convert raster to vector
-        outfile = str(Path(outdir).joinpath(Path(i).stem+'.shp'))
-        raster_to_vector(str(i), outfile, proj, band_info, start, end)
-        
-        print('Saved to '+str(Path(outfile).name))
-        count=count+1
-        
-    print('Finished')
+
+    # Perform conversion
+    convert(indir, outdir, proj, band_info, start, end)    
