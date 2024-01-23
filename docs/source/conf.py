@@ -12,9 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))
-sys.path.insert(0, os.path.abspath('../../src'))
-
+sys.path.insert(0, os.path.abspath('../src/griml/'))
 # -- Project information -----------------------------------------------------
 
 project = 'GrIML'
@@ -22,7 +20,7 @@ copyright = '2022, Penelope How'
 author = 'Penelope How'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,7 +39,7 @@ napoleon_google_docstring = False
 napoleon_numpy_docstring = True   
 napoleon_use_ivar = True 
 
-autodoc_mock_imports = ['ee', 'geopandas', 'numpy', 'pandas', 'scipy', 'shapely']	 
+autodoc_mock_imports = ['geopandas', 'numpy', 'pandas', 'scipy', 'shapely', 'rasterio', 'griml']	 
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
