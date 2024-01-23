@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="griml",
-    version="0.0.1",
+    version="0.0.2",
     author="Penelope How",
     author_email="pho@geus.dk",
     description="A workflow for classifying lakes from satellite imagery and compiling lake inventories",
@@ -28,5 +28,5 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
-    install_requires=['earthengine-api', 'geopandas', 'numpy', 'pandas', 'scipy', 'Shapely'],
+    install_requires=['geopandas', 'pandas', 'scipy', 'Shapely', 'rasterio'],
 )

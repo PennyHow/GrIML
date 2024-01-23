@@ -15,6 +15,7 @@ from shapely.geometry import Polygon, LineString, MultiPolygon
 import geopandas as gpd
 import multiprocessing as mp
 
+sys.path.append('../')
 from retrieve import getScenes, getScene, getInt, getSmooth, getMosaic, \
     getMean, maskImage, splitBBox, getVectors, extractFeatures, getFeatures, \
     getFeaturesSplit
@@ -40,7 +41,8 @@ aoi2 = [-49.66, 67.58]
 # aoi1 = [-10.297656250000014,59.03190534154833]             # All Greenland
 # aoi2 = [-74.98515625000002,83.9867103173338]
 
-aoi = '/home/pho/Desktop/python_workspace/GrIML-personal/workflow/test/AOI_mask.shp'
+print('Loading bounding box')
+aoi = '/home/pho/Desktop/python_workspace/GrIML/other/datasets/aoi/test_mask_4326.shp'
 aoi = gpd.read_file(aoi)
 aoi_poly = aoi.geometry.iloc[0]
 xmin, ymin, xmax, ymax = aoi_poly.bounds 
@@ -68,26 +70,30 @@ proj = 'EPSG:3413'                                # Polar stereographic
 #---------------------------   Initialise GEE   -------------------------------
     
 ee.Initialize()
+print('EE initialized')
 
 # Set the Area of Interest (AOI) through box coordinates
 box = ee.Geometry.Rectangle([xmin, ymin, xmax, ymax])
 
 # Split box into grid for exporting
-grid = splitBBox([xmin, ymin], [xmax, ymax], wh, ww, oh, ow)
-
-# Remove boxes that don't overlap with AOI polygon
-grid = [Polygon([[g[0],g[1]], [g[0],g[3]], [g[2],g[3]],
-                  [g[2],g[1]], [g[0],g[1]]]) for g in grid]
-bbox = [ee.Geometry.Rectangle(min(g.exterior.coords.xy[0]), 
-                              min(g.exterior.coords.xy[1]), 
-                              max(g.exterior.coords.xy[0]), 
-                              max(g.exterior.coords.xy[1])) for g in grid if g.intersects(aoi_poly)]
+bbox = splitBBox(aoi_poly, wh, ww, oh, ow)
+print('grid completed')
+# # Remove boxes that don't overlap with AOI polygon
+# grid = [Polygon([[g[0],g[1]], [g[0],g[3]], [g[2],g[3]],
+#                   [g[2],g[1]], [g[0],g[1]]]) for g in grid]
+# bbox = [ee.Geometry.Rectangle(min(g.exterior.coords.xy[0]), 
+#                               min(g.exterior.coords.xy[1]), 
+#                               max(g.exterior.coords.xy[0]), 
+#                               max(g.exterior.coords.xy[1])) for g in grid if g.intersects(aoi_poly)]
 
 
 print(f'Computed {len(bbox)} bounding boxes')
 print(f'Total area covered: {aoi_poly.area} sq km')
 
-bbox = bbox[100:105]
+
+
+
+# bbox = bbox[100:105]
 
 # # Set the Area of Interest (AOI) through box coordinates
 # box = ee.Geometry.Rectangle([aoi1[0], aoi1[1],
@@ -215,7 +221,7 @@ if scenes.size().getInfo() > 0:
     aver = maskImage(aver, ocean_mask)
     
     # Classify water from SAR average image
-    water_sar = classifySARimage(aver)
+    water_sar = classifySARimage(aver, -20, 'HH', 50)
     print(f'{sar_col} scenes classified')
     print('Band names: ' + str(water_sar.bandNames().getInfo()))      
  
@@ -359,7 +365,7 @@ iml.to_file(f"out/iiml_{date1}_{date2}_{aoi1[0]}_{aoi1[1]}_unfiltered.shp")
 #--------------------   Filter database by ice margin   -----------------------
 
 # Load margin and add buffer
-margin = gpd.read_file("../datasets/ice_margin/gimp_icemask_line_polstereo.shp")
+margin = gpd.read_file("../../../other/datasets/ice_margin/gimp_icemask_line_polstereo.shp")
 margin_buff = margin.buffer(500)
 margin_buff = gpd.GeoDataFrame(geometry=margin_buff, crs=margin.crs)
 
@@ -384,12 +390,12 @@ iml.to_file(f"out/iiml_{date1}_{date2}_{aoi1[0]}_{aoi1[1]}_filtered.shp")
 iml = assignID(iml)
 iml = assignSources(iml)
 
-names = gpd.read_file('../datasets/placenames/oqaasileriffik_placenames.shp')
+names = gpd.read_file('../../../other/datasets/placenames/oqaasileriffik_placenames.shp')
 iml = assignNames(iml, names)
         
 #-----------------------   Write data to shapefile   -------------------------- 
     
-iml.to_file(f"out/iiml_{date1}_{date2}_{aoi1[0]}_{aoi1[1]}_final.shp")
+iml.to_file(f"/home/pho/Desktop/python_workspace/GrIML/other/out/iiml_{date1}_{date2}_{aoi1[0]}_{aoi1[1]}_final.shp")
 print(f'Saved to out/iiml_{date1}_{date2}_{aoi1[0]}_{aoi1[1]}_final.shp')
 
 # Plot lakes

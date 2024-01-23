@@ -36,8 +36,8 @@ proj = 'EPSG:3413'                                # Polar stereographic
 
 # Set AOI
 # aoi = '/home/pho/python_workspace/GrIML/other/datasets/aoi/AOI_mask_split2.shp'
-aoi = '/home/pho/python_workspace/GrIML/other/datasets/aoi/test_mask.shp'
-aoi = gpd.read_file(aoi).to_crs('EPSG:4326')
+aoi = '/home/pho/python_workspace/GrIML/other/datasets/aoi/test_mask_4326.shp'
+aoi = gpd.read_file(aoi)#.to_crs('EPSG:4326')
 
 # Load ice margin with buffer
 print('Preparing ice margin buffer...')
@@ -52,8 +52,8 @@ names = gpd.read_file('/home/pho/python_workspace/GrIML/other/datasets/placename
 
 #---------------------------   Initialise GEE   -------------------------------
 
-parameters = [{'collection' : 'UMN/PGC/ArcticDEM/V3/2m_mosaic',
-              'smooth' : 100, 'fill' : 100, 'kernel' : 100, 'speckle' : 50},  
+parameters = [#{'collection' : 'UMN/PGC/ArcticDEM/V3/2m_mosaic',
+              #'smooth' : 100, 'fill' : 100, 'kernel' : 100, 'speckle' : 50},  
               # {'collection' : 'UMN/PGC/ArcticDEM/V3/2m',
               # 'smooth' : 100, 'fill' : 100, 'kernel' : 100, 'speckle' : 50},
               {'collection' : 'COPERNICUS/S1_GRD',
@@ -78,7 +78,11 @@ for i in range(len(aoi.index)):
     
     print('Conducting classifications...')
     proc = gee([date1, date2], aoi_poly, parameters, [wh, ww, oh, ow], True)
+
+    print('Processing...')
     water = proc.processAll()
+
+    print('Retrieving...')
     features = proc.retrieveAll(water)
 
     # Filter features
