@@ -56,7 +56,7 @@ def raster_to_vector(infile, outfile, proj, band_info, startdate, enddate):
     
     # Save and return
     all_gdf.to_file(outfile)
-    return all_gdf f
+    return all_gdf
 
 def _get_band_vectors(infile, band):
     '''Read raster band and extract shapes as polygon vectors'''

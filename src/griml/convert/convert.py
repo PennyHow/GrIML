@@ -11,10 +11,8 @@ GrIML convert rasters to vectors
 from griml.convert import raster_to_vector
 import glob
 from pathlib import Path
-# import numpy as np
 
 def convert(indir, outdir, proj, band_info, startdate, enddate):
-    
     # Iterate through files
     count=1
     for i in indir:
