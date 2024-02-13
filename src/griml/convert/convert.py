@@ -22,7 +22,8 @@ def convert(indir, outdir, proj, band_info, startdate, enddate):
         outfile = str(Path(outdir).joinpath(Path(i).stem+'.shp'))
         raster_to_vector(str(i), outfile, proj, band_info, startdate, enddate)
         
-        print('Saved to '+str(Path(outfile).name))
+        if outfile is not None:
+            print('Saved to '+str(Path(outfile).name))
         count=count+1
         
     print('Finished')

@@ -27,6 +27,7 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
+    package_data={"griml.test": ["*"]},
     python_requires=">=3.6",
     install_requires=['geopandas', 'pandas', 'scipy', 'Shapely', 'rasterio'],
 )

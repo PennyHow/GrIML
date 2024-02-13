@@ -55,7 +55,8 @@ def raster_to_vector(infile, outfile, proj, band_info, startdate, enddate):
     all_gdf = all_gdf.set_index("row_id") 
     
     # Save and return
-    all_gdf.to_file(outfile)
+    if outfile is not None:
+        all_gdf.to_file(outfile)
     return all_gdf
 
 def _get_band_vectors(infile, band):
