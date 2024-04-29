@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.abspath('../../src/griml/'))
 # -- Project information -----------------------------------------------------
 
 project = 'GrIML'
-copyright = '2022, Penelope How'
+copyright = '2024, Penelope How'
 author = 'Penelope How'
 
 # The full version, including alpha/beta/rc tags
