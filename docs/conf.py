@@ -18,8 +18,8 @@ extensions = [
     'sphinx.ext.intersphinx',	  
     'sphinx.ext.mathjax',     
     'sphinx.ext.napoleon',
-    'myst-parser',
-    'sphinx-design' 
+    'myst_parser',
+    'sphinx_design' 
 ]
 
 napoleon_google_docstring = False 
