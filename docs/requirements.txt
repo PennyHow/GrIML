@@ -1,6 +1,8 @@
 geopandas
+myst-parser
 numpy
 pandas
 scipy
 shapely
+sphinx_design
 rasterio
