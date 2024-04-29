@@ -1,3 +1,4 @@
+cloud-sptheme
 geopandas
 myst-parser
 numpy
