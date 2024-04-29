@@ -1,73 +1,55 @@
 Modules
 =======
 
-convert.raster_to_vector module
--------------------------------
+convert module
+--------------
 
-.. automodule:: convert.raster_to_vector
+.. automodule:: convert
    :members:
    :undoc-members:
    :show-inheritance:
 
 
-filter.filter_area module
--------------------------
+filter module
+-------------
 
-.. automodule:: filter_area
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
-filter.filter_margin module
--------------------------
-
-.. automodule:: filter_margin
+.. automodule:: filter
    :members:
    :undoc-members:
    :show-inheritance:
    
 
-merge.merge_vectors module
---------------------------
+merge module
+------------
 
-.. automodule:: merge.merge_vectors
+.. automodule:: merge
    :members:
    :undoc-members:
    :show-inheritance:
 
 
-metadata.assign_certainty module
---------------------------------
+metadata module
+----------------
 
-.. automodule:: metadata.assign_certainty
+.. automodule:: metadata
    :members:
    :undoc-members:
    :show-inheritance:
 
 
-metadata.assign_id module
--------------------------
+test module
+------------
 
-.. automodule:: metadata.assign_id
+.. automodule:: test.test
    :members:
    :undoc-members:
    :show-inheritance:
-   
-   
-metadata.assign_names module
-----------------------------
 
-.. automodule:: metadata.assign_names
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   
 
-metadata.assign_sources module
-------------------------------
+stats module
+------------
 
-.. automodule:: metadata.assign_sources
+.. automodule:: stats
    :members:
    :undoc-members:
    :show-inheritance:
