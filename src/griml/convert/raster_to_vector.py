@@ -14,22 +14,22 @@ from rasterio.features import shapes
 import geopandas as gpd
 import pandas as pd
 
-def raster_to_vector(infile, outfile, proj, band_info, startdate, enddate):
+def raster_to_vector(infile, proj, band_info, startdate, enddate, outfile=None):
     '''Convert raster to vector file with geopandas
     
     Parameters
     ----------
     infile : str
         Input file location as string
-    outfile : str
-        Output file location as string
     band_info : int
         Band number
     startdate : str
         Start date 
     enddate : str
         End date
-    
+     outfile : str, optional
+         Output file location as string
+         
     Returns
     -------
     all_gdf : geopandas.GeoDataFrame

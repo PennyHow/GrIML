@@ -46,6 +46,7 @@ def merge_vectors(feature_list, method_list, collection_list, start_date_list,
            
     # Construct merged geodataframe
     all_gdf = pd.concat(dfs)
+    all_gdf = gpd.GeoDataFrame(all_gdf, crs=proj, geometry=list(all_gdf.geometry))
     
     all_gdf["row_id"] = all_gdf.index + 1
     all_gdf.reset_index(drop=True, inplace=True)

@@ -24,20 +24,19 @@ def add_metadata(iml, names, outfile):
         
     print('Assigning placenames...')
     iml = assign_names(iml, names)
-    
-    if outfile is not None:    
-        print('Saving file...')
-        iml.to_file(outfile)
-        print('Saved to '+str(outfile))
+        
+    print('Saving file...')
+    iml.to_file(outfile)
+    print('Saved to '+str(outfile)+"_metadata.shp")
         
         
 if __name__ == "__main__": 
     # indir = "/home/pho/python_workspace/GrIML/other/iml_2017/merged_vectors/griml_2017_inventory.shp"
-    indir = "/home/pho/python_workspace/GrIML/other/iml_2017/merged_vectors/griml_2017_inventory_first_intervention.shp"
+    indir = "/home/pho/python_workspace/GrIML/other/iml_2017/inspected_vectors/lakes_all-0000000000-0000037888_filtered.shp"
     iml = gpd.read_file(indir)
     
     infile_names = '/home/pho/python_workspace/GrIML/other/datasets/placenames/oqaasileriffik_placenames.shp'
     names = gpd.read_file(infile_names)
     
-    outfile = "/home/pho/python_workspace/GrIML/other/iml_2017/metadata_vectors/griml_2017_inventory_final_first_intervention.shp"
+    outfile = "/home/pho/python_workspace/GrIML/other/iml_2017/metadata_vectors/griml_2017_inventory_final.shp"
     add_metadata(iml, names, outfile)

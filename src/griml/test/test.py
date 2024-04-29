@@ -2,9 +2,9 @@ from griml.convert import convert
 from griml.filter import filter_vectors
 from griml.merge import merge_vectors
 from griml.metadata import add_metadata
-import unittest, pkg_resources
+import unittest, pkg_resources, os
 import geopandas as gpd
-
+import griml
 
 class TestGrIML(unittest.TestCase):
     '''Unittest for the GrIML post-processing workflow'''
@@ -17,40 +17,47 @@ class TestGrIML(unittest.TestCase):
                      {'b_number':3, 'method':'DEM', 'source':'ARCTICDEM'}] 
         start='20170701' 
         end='20170831'
-        with pkg_resources.resource_stream('griml', 'test/test_north_greenland.tif') as stream:
-            vectors = convert([stream], None, proj, band_info, start, end) 
+        
+        infile = os.path.join(os.path.dirname(griml.__file__),'test/test_north_greenland.tif')
+        convert([infile], None, proj, band_info, start, end) 
 
     def test_filter(self):
-        '''Test vector filtering'''        
-        with pkg_resources.resource_stream('griml', 'test/test_icemask.shp') as stream:
-            margin_buff = gpd.read_file(stream)
-        with pkg_resources.resource_stream('griml', 'test/test_filter.shp') as stream:
-            filter_vectors([stream], None, margin_buff)
+        '''Test vector filtering'''  
+        infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_icemask.shp')
+        margin_buff = gpd.read_file(infile1)
+
+        infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_filter.shp')       
+        filter_vectors(infile2, None, margin_buff)
 
     def test_merge(self):
         '''Test vector merging'''
-        with pkg_resources.resource_stream('griml', 'test/test_merge_1.shp') as stream:
-            merge1 = gpd.read_file(stream) 
-        with pkg_resources.resource_stream('griml', 'test/test_merge_2.shp') as stream:
-            merge2 = gpd.read_file(stream)             
+        infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_1.shp')  
+        merge1 = gpd.read_file(infile1) 
+
+        infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')          
+        merge2 = gpd.read_file(infile2)          
+        
         features=[]
         methods=[]
         sources=[]
         starts=[]
         ends=[]    
-        for i in [merge1, merge2]: 
-            features.append(list(i['geometry'])) 
-            methods.append(list(i['method'])) 
-            sources.append(list(i['source'])) 
-            starts.append(list(i['startdate'])) 
-            ends.append(list(i['enddate'])) 
+        for infile in [merge1, merge2]:
+            features.append(list(infile['geometry'])) 
+            methods.append(list(infile['method'])) 
+            sources.append(list(infile['source'])) 
+            starts.append(list(infile['startdate'])) 
+            ends.append(list(infile['enddate'])) 
         vectors = merge_vectors(features, methods, sources, starts, ends) 
 
     def test_metadata(self):
         '''Test metadata population'''
-
-        with pkg_resources.resource_stream('griml', 'test/test_merge_2.shp') as stream:
-            iml = gpd.read_file(stream)               
-        with pkg_resources.resource_stream('griml', 'test/test_placenames.shp') as stream:
-            names = gpd.read_file(stream)
+        infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')          
+        iml = gpd.read_file(infile1) 
+   
+        infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_placenames.shp')              
+        names = gpd.read_file(infile2)
         add_metadata(iml, names, None)
+
+if __name__ == "__main__":  
+    unittest.main()

@@ -12,21 +12,28 @@ from griml.convert import raster_to_vector
 import glob
 from pathlib import Path
 
-def convert(indir, outdir, proj, band_info, startdate, enddate):
+def convert(indir, outdir, proj, band_info, startdate, enddate, outfile=None):
+    
     # Iterate through files
+    converted=[]
     count=1
     for i in indir:
         print('\n'+str(count) + '. Converting ' + str(Path(i).name))
         
         # Convert raster to vector
-        outfile = str(Path(outdir).joinpath(Path(i).stem+'.shp'))
-        raster_to_vector(str(i), outfile, proj, band_info, startdate, enddate)
-        
         if outfile is not None:
+            outfile = str(Path(outdir).joinpath(Path(i).stem+'.shp'))
+            g = raster_to_vector(str(i), proj, band_info, startdate, enddate, None)
             print('Saved to '+str(Path(outfile).name))
+            
+        else:
+            g = raster_to_vector(str(i), proj, band_info, startdate, enddate, outfile)
+        
+        converted.append(g)
         count=count+1
         
     print('Finished')
+    return (converted)
     
 if __name__ == "__main__": 
 
