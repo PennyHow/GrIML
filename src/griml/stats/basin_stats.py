@@ -10,7 +10,6 @@ Statistical analysis
 import os
 import numpy as np
 import geopandas as gp
-import matplotlib.pyplot as plt
 from scipy import stats
 
 

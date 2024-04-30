@@ -1,7 +1,7 @@
-from griml.convert import convert
-from griml.filter import filter_vectors
-from griml.merge import merge_vectors
-from griml.metadata import add_metadata
+from griml.convert.convert import convert
+from griml.filter.filter_vectors import filter_vectors
+from griml.merge.merge_vectors import merge_vectors
+from griml.metadata.add_metadata import add_metadata
 import unittest, pkg_resources, os
 import geopandas as gpd
 import griml
