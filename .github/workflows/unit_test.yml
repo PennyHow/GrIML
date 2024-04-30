@@ -1,0 +1,33 @@
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    name: unit_test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8','3.9','3.10']
+    steps:
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"        
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install dependencies
+        shell: bash
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install Bottleneck 
+          python3 -m pip install --upgrade setuptools
+          cd $GITHUB_WORKSPACE
+          pip install . 
+      - name: Run unit tests
+        shell: bash
+        run: |
+          python3 -m unittest discover griml

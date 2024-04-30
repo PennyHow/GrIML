@@ -1,7 +1,9 @@
-ee
+cloud-sptheme
 geopandas
-griml
+myst-parser
 numpy
 pandas
 scipy
 shapely
+sphinx_design
+rasterio
