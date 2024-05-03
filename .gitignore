@@ -1,3 +1,4 @@
+build/*
 other/out/*
 other/datasets/*
 other/old/*
