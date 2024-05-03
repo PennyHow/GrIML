@@ -12,8 +12,8 @@ authors:
     orcid: 0000-0002-8088-8497
     affiliation: 1
 affiliations:
- - name: Geological Survey of Denmark and Greenland (GEUS), Copenhagen, Denmark
-   index: 1
+  - name: Department of Glaciology and Climate, Geological Survey of Denmark and Greenland (GEUS), Copenhagen, Denmark
+   
 date: 3 May 2024
 bibliography: paper.bib
 
@@ -65,6 +65,11 @@ Figure sizes can be customized by adding an optional second parameter:
 
 - Need for reproducibility and transparency
 - Outlines criteria for ice marginal lake classification
+
+
+# Usage
+
+- Use in GrIML inventory series generation
 
 
 # Acknowledgements
