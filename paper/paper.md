@@ -3,17 +3,18 @@ title: 'GrIML: A Python package for examining Greenland's ice marginal lakes und
 tags:
   - Python
   - glaciology
-  - cryospheric science
+  - cryospheric sciences
   - remote sensing
   - greenland
   - kalaallit nunaat
 authors:
   - name: Penelope R. How
     orcid: 0000-0002-8088-8497
+    corresponding: true # (This is how to denote the corresponding author)
     affiliation: 1
 affiliations:
   - name: Department of Glaciology and Climate, Geological Survey of Denmark and Greenland (GEUS), Copenhagen, Denmark
-   
+   index: 1   
 date: 3 May 2024
 bibliography: paper.bib
 
@@ -26,12 +27,9 @@ bibliography: paper.bib
 - GrIML datasets
 - Similar toolboxes
 
-Citations to entries in paper.bib should be in
-[rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
-format.
+Citations to entries in paper.bib should be in [rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html) format.
 
-If you want to cite a software repository URL (e.g. something on GitHub without a preferred
-citation) then you can do it with the example BibTeX entry below for @fidgit.
+If you want to cite a software repository URL (e.g. something on GitHub without a preferred citation) then you can do it with the example BibTeX entry below for @fidgit.
 
 For a quick reference, the following citation commands can be used:
 - `@author:2001`  ->  "Author et al. (2001)"
