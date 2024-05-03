@@ -1,8 +1,8 @@
-cloud-sptheme
 geopandas
 myst-parser
 numpy
 pandas
+renku-sphinx-theme
 scipy
 shapely
 sphinx_design
