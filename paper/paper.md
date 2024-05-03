@@ -1,9 +1,9 @@
 ---
-title: 'GrIML: A Python package for examining Greenland's ice marginal lakes under a changing climate'
+title: 'GrIML'
 tags:
   - Python
   - glaciology
-  - remote-sensing
+  - climate
   - greenland
   - kalaallit-nunaat
 authors:
@@ -13,8 +13,8 @@ authors:
     affiliation: 1
 affiliations:
  - name: Department of Glaciology and Climate, Geological Survey of Denmark and Greenland (GEUS), Copenhagen, Denmark
-   index: 1
-date: 03 May 2024
+
+date: 03 March 2023
 bibliography: paper.bib
 
 ---
