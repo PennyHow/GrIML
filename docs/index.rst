@@ -12,6 +12,10 @@ A Python package for classifying lakes and compiling lake inventories, under the
    :maxdepth: 2
    :caption: Contents:
    
+   installation
+   tutorials
+   background
+   contributing
    modules
 
 
