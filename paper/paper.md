@@ -52,11 +52,14 @@ You can also use plain \LaTeX for equations
 and refer to \autoref{eq:fourier} from text.
 
 Figures can be included like this:
-![Caption for example figure.\label{fig:example}](figure.png)
+
+![Caption for example figure.\label{fig:example}](https://raw.githubusercontent.com/PennyHow/GrIML/blob/main/other/reporting/figures/workflow_revised.jpg)
+
 and referenced from text using \autoref{fig:example}.
 
 Figure sizes can be customized by adding an optional second parameter:
-![Caption for example figure.](figure.png){ width=20% }
+
+![Caption for example figure.](https://raw.githubusercontent.com/PennyHow/GrIML/blob/main/other/reporting/figures/workflow_revised.jpg){ width=20% }
 
 
 # Statement of need
