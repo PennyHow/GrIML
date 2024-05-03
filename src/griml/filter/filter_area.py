@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML filter vectors
-
-@author: Penelope How
-"""
 
 def filter_area(iml, min_area=0.05):
     '''Filter vectors in GeoDataframe object by a defined area

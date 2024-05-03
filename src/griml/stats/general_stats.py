@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Sep 26 10:27:57 2019
-
-Statistical analysis
-
-@author: Penelope How
-"""
 
 import numpy as np
 import geopandas as gp

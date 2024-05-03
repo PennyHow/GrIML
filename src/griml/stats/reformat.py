@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 24 08:37:11 2020
-
-Reformatting for statistical analysis
-@author: Penelope How
-"""
 
 import geopandas as gpd
  

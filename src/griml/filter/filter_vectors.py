@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML filter vectors
-
-@author: Penelope How
-"""
 
 from griml.filter import filter_margin, filter_area
 import geopandas as gpd

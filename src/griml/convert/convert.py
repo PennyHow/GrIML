@@ -1,12 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  5 14:27:48 2023
-
-GrIML convert rasters to vectors
-
-@author: Penelope How
-"""
 
 from griml.convert import raster_to_vector
 import glob

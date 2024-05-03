@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML metadata assignment
-
-@author: Penelope How
-"""
 
 def assign_certainty(gdf, search_names, scores, source='all_src'):
     '''Assign certainty score to geodataframe based on sources

@@ -1,12 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 23 13:36:35 2024
 
-GrIML merge vectors
-
-@author: Penelope How
-"""
 import geopandas as gpd
 import pandas as pd
 from glob import glob
