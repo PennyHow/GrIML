@@ -1,5 +1,8 @@
-Convert
+Modules
 =======
+
+Convert
+-------
 
 .. automodule:: convert.convert
    :members:
@@ -14,7 +17,7 @@ Convert
 
 
 Filter
-======
+------
 
 .. automodule:: filter.filter_area
    :members:
@@ -35,7 +38,7 @@ Filter
 
 
 Merge
-=====
+-----
 
 .. automodule:: merge.merge_vectors
    :members:
@@ -44,7 +47,7 @@ Merge
 
 
 Metadata
-========
+--------
 
 .. automodule:: metadata.add_metadata
    :members:
@@ -83,7 +86,7 @@ Metadata
  
 
 stats
-=====
+-----
 
 .. automodule:: stats.basin_stats
    :members:
@@ -110,7 +113,7 @@ stats
    
    
 test
-====
+----
 
 .. automodule:: test.test
    :members:

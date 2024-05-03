@@ -16,6 +16,7 @@ A Python package for classifying lakes and compiling lake inventories, under the
    tutorials
    background
    contributing
+   acknowledgments
    modules
 
 

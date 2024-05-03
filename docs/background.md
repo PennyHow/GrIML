@@ -37,12 +37,12 @@ Ice marginal lakes are detected using a remote sensing approach, based on offlin
 Bi-monthly reports of GrIML's progress are available [here](https://github.com/PennyHow/GrIML/tree/main/other/reporting).
 
 
-## Links
+## Project links
 
-- ESA <a href="https://eo4society.esa.int/projects/griml/">project outline</a> and <a href="https://eo4society.esa.int/lpf/penelope-how/">fellow information</a>
+- ESA [project outline](https://eo4society.esa.int/projects/griml/) and [fellow information](https://eo4society.esa.int/lpf/penelope-how/)
 
-- Information about the <a href="https://eo4society.esa.int/communities/scientists/living-planet-fellowship/">ESA Living Planet Fellowship</a>
+- Information about the [ESA Living Planet Fellowship](https://eo4society.esa.int/communities/scientists/living-planet-fellowship/)
 
-- <a href="https://pennyhow.github.io/blog/investigating-griml/">GrIML project description</a>
+- [GrIML project description](https://pennyhow.github.io/blog/investigating-griml/)
 
-- 2017 ice marginal lake inventory <a href="https://www.nature.com/articles/s41598-021-83509-1">Scientific Reports paper</a> and <a href="https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519">dataset</a>
+- 2017 ice marginal lake inventory [Scientific Reports paper](https://www.nature.com/articles/s41598-021-83509-1) and [dataset](https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519)
