@@ -4,9 +4,6 @@ tags:
   - Python
   - glaciology
   - climate
-  - promice
-  - gc-net
-  - geus
   - greenland
   - kalaallit-nunaat
 authors:
@@ -14,30 +11,11 @@ authors:
     orcid: 0000-0002-8088-8497
     corresponding: true # (This is how to denote the corresponding author)
     affiliation: 1
-  - name: Patrick J. Wright
-    orcid: 0000-0003-2999-9076
-    affiliation: 1
-  - name: Kenneth D. Mankoff
-    orcid: 0000-0001-5453-2019
-    affiliation: "1, 2, 3"
-  - name: Baptiste Vandecrux
-    orcid: 0000-0002-4169-8973
-    affiliation: 1
-  - name: Robert S. Fausto
-    orcid: 0000-0003-1317-8185
-    affiliation: 1
-  - name: Andreas P. Ahlstrøm
-    orcid: 0000-0001-8235-8070
-    affiliation: 1
 affiliations:
  - name: Department of Glaciology and Climate, Geological Survey of Denmark and Greenland (GEUS), Copenhagen, Denmark
    index: 1
- - name:  Autonomic Integra, New York, NY, USA
-   index: 2
- - name: NASA Goddard Institute for Space Studies, New York, NY, USA
-   index: 3
 
-date: 03 March 2023
+date: 03 May 2024
 bibliography: paper.bib
 
 ---
@@ -54,9 +32,9 @@ Citations to entries in paper.bib should be in [rMarkdown](http://rmarkdown.rstu
 If you want to cite a software repository URL (e.g. something on GitHub without a preferred citation) then you can do it with the example BibTeX entry below for @fidgit.
 
 For a quick reference, the following citation commands can be used:
-- `@author:2001`  ->  "Author et al. (2001)"
-- `[@author:2001]` -> "(Author et al., 2001)"
-- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
+- `@fausto-programme-2021`  ->  "Author et al. (2001)"
+- `[@fausto-programme-2021]` -> "(Author et al., 2001)"
+- `[@how-2021; @fausto-programme-2021]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
 
 Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
 
