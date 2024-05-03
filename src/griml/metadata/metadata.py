@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML metadata assignment
 
-@author: Penelope How
-"""
 from griml.metadata import assign_id, assign_sources, assign_certainty, \
     assign_names
 import geopandas as gpd

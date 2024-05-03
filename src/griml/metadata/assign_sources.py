@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML metadata assignment
-
-@author: Penelope How
-"""
 
 def assign_sources(gdf, col_names=['unique_id', 'source']):
     '''Assign source metadata to geodataframe, based on unique lake id and

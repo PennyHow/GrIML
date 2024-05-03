@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML filter vectors
-
-@author: Penelope How
-"""
 
 import geopandas as gpd
 

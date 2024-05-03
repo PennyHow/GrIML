@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML metadata assignment
 
-@author: Penelope How
-"""
 from scipy.sparse.csgraph import connected_components
 
 def assign_id(gdf, col_name='unique_id'):

@@ -14,7 +14,7 @@ print(metadata.version('griml'))
 
 - Explain why the current behaviour is wrong or not desired, and what you expect instead
 
-```{note}
+```{important}
 Before submitting an issue, please make sure that your installation is correct and working from either the pip installation or the main branch of the GrIML repository.
 ```
 

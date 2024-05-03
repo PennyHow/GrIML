@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-GrIML metadata assignment
-
-@author: Penelope How
-"""
 
 def assign_names(gdf, gdf_names, distance=500.0):
     '''Assign placenames to geodataframe geometries based on names in another 
