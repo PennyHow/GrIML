@@ -6,6 +6,7 @@ tags:
   - cryospheric science
   - remote sensing
   - greenland
+  - kalaallit nunaat
 authors:
   - name: Penelope R. How
     orcid: 0000-0002-8088-8497
@@ -15,6 +16,7 @@ affiliations:
    index: 1
 date: 3 May 2024
 bibliography: paper.bib
+
 ---
 
 # Summary
