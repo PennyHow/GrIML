@@ -1,5 +1,5 @@
 ---
-title: 'GrIML: A Python package for investigating Greenland's ice marginal lakes under a changing climate'
+title: "GrIML: A Python package for investigating Greenland's ice marginal lakes under a changing climate"
 tags:
   - Python
   - glaciology
