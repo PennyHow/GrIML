@@ -1,7 +1,7 @@
 ---
 title: "GrIML: A Python package for investigating Greenland's ice marginal lakes under a changing climate"
 tags:
-  - Python
+  - python
   - glaciology
   - remote sensing
   - greenland
@@ -12,7 +12,7 @@ authors:
     corresponding: true
     affiliation: 1
 affiliations:
- - name: Department of Glaciology and Climate, Geological Survey of Denmark and Greenland (GEUS), Copenhagen, Denmark
+ - name: Department of Glaciology and Climate, Geological Survey of Denmark and Greenland (GEUS), Nuuk, Greenland
    index: 1
 
 date: 01 September 2024
@@ -22,14 +22,30 @@ bibliography: paper.bib
 
 # Summary
 
-The **GrIML** processing package is for classifying water bodies from satellite imagery using a multi-sensor, multi-method remote sensing approach. This workflow is part of the [ESA GrIML project](https://eo4society.esa.int/projects/griml/) (Investigating Greenland's ice marginal lakes under a changing climate).
+The `GrIML` Python package is for the post-processing of classified water bodies from satellite imagery. Initial rasterised binary classifications denoting water bodies can be inputted to `GrIML` to convert, filter and merge into a cohesive ice marginal lake vector dataset, populated with useful metadata and analysed with relevant statistical information (\autoref{fig:workflow}).
+
+![An overview of the GrIML Python package workflow \label{fig:workflow}](https://github.com/PennyHow/GrIML/blob/joss-paper/other/reporting/figures/griml_workflow_without_gee.png?raw=true)
+
+This package is part of the [ESA GrIML project](https://eo4society.esa.int/projects/griml/) (Investigating Greenland's ice marginal lakes under a changing climate), whose aim is to map and monitor ice marginal lakes across Greenland through a series of annual ice marginal lake inventories (2016-2023). This workflow was used to make the inventory series, and will continue to be used to generate inventories in the future.
+
+
+# Statement of need
+
+`GrIML` meets four main needs to users in the remote sensing and cryospheric science communities:
+
+1. Provide a usable workflow for post-processing of rasterised water body classifications
+2. Document the criteria for classifying an ice marginal lake
+3. Showcase a transparent workflow that, in turn, produces an open and reproducible ice marginal lake dataset that adheres to the FAIR principles [@wilkinson-fair-2016]
+4. Produce inventories that map the areal extent and frequency of ice marginal lakes across Greenland, which demonstrate ice marginal lake evolution under a changing cliamte
+
+
+- Many different approaches to classifying ice marginal lakes [@shugar-rapid-2020;@rick-dam-2022]
+- Previously this workflow was a closed method [@how-greenland-wide-2021]
+
 
 Sea level is predicted to rise drastically by 2100, with significant contribution from the melting of the Greenland Ice Sheet (GrIS). In these predictions, melt runoff is assumed to contribute directly to sea level change, with little consideration for meltwater storage at the terrestrial margin of the ice sheet; such as ice marginal lakes. 
 
 In 2017, 3347 ice marginal lakes were identified in Greenland along the ice margin ([How et al., 2021](https://www.nature.com/articles/s41598-021-83509-1), see map figure for all mapped lakes). Globally, these ice marginal lakes hold up to 0.43 mm of sea level equivalent, which could have a marked impact on future predictions ([Shugar et al., 2021](https://www.nature.com/articles/s41558-020-0855-4)). Therefore, they need to be monitored to understand how changes in ice marginal lake water storage affect melt contribution, and how their dynamics evolve under a changing climate.
-
-
-# Statement of need
 
 `GrIML` proposes to examine ice marginal lake changes across Greenland using a multi-sensor and multi-method remote sensing approach to better address their influence on sea level contribution forecasting.
 
