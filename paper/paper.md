@@ -35,12 +35,12 @@ This package is part of the [ESA GrIML project](https://eo4society.esa.int/proje
 
 1. Provide a usable workflow for post-processing of rasterised water body classifications
 2. Document the criteria for classifying an ice marginal lake
-3. Showcase a transparent workflow that, in turn, produces an open and reproducible ice marginal lake dataset that adheres to the FAIR principles [@wilkinson-fair-2016]
+3. Showcase a transparent workflow that, in turn, produces an open and reproducible ice marginal lake dataset that adheres to the FAIR principles [@wilkinson_fair_2016]
 4. Produce inventories that map the areal extent and frequency of ice marginal lakes across Greenland, which demonstrate ice marginal lake evolution under a changing cliamte
 
 
-- Many different approaches to classifying ice marginal lakes [@shugar-rapid-2020;@rick-dam-2022]
-- Previously this workflow was a closed method [@how-greenland-wide-2021]
+- Many different approaches to classifying ice marginal lakes [@shugar_rapid_2020;@rick_dam_2022]
+- Previously this workflow was a closed method [@how_greenland-wide_2021]
 
 
 Sea level is predicted to rise drastically by 2100, with significant contribution from the melting of the Greenland Ice Sheet (GrIS). In these predictions, melt runoff is assumed to contribute directly to sea level change, with little consideration for meltwater storage at the terrestrial margin of the ice sheet; such as ice marginal lakes. 
