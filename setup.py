@@ -17,6 +17,8 @@ setuptools.setup(
     },
     keywords="glaciology ice lake ESA",
     classifiers=[
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
@@ -30,6 +32,6 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     package_data={"griml.test": ["*"]},
-    python_requires=">=3.10",
+    python_requires=">=3.8",
     install_requires=['geopandas', 'pandas', 'scipy', 'Shapely', 'rasterio'],
 )
