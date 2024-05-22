@@ -5,7 +5,19 @@ from griml.convert import raster_to_vector
 import glob
 from pathlib import Path
 
-def convert(indir, outdir, proj, band_info, startdate, enddate, outfile=None):
+def convert(indir, proj, band_info, startdate, enddate, outdir=None):
+    '''Compile features from multiple processings into one geodataframe
+
+    Parameters
+    ----------
+    inlist : list
+        List of files or geopandas.dataframe.DataFrame objects to merge
+
+    Returns
+    -------
+    all_gdf : geopandas.dataframe.GeoDataFrame
+        Compiled goedataframe
+    '''
     
     # Iterate through files
     converted=[]
@@ -14,18 +26,17 @@ def convert(indir, outdir, proj, band_info, startdate, enddate, outfile=None):
         print('\n'+str(count) + '. Converting ' + str(Path(i).name))
         
         # Convert raster to vector
-        if outfile is not None:
+        if outdir is not None:
             outfile = str(Path(outdir).joinpath(Path(i).stem+'.shp'))
             g = raster_to_vector(str(i), proj, band_info, startdate, enddate, None)
             print('Saved to '+str(Path(outfile).name))
             
         else:
-            g = raster_to_vector(str(i), proj, band_info, startdate, enddate, outfile)
+            g = raster_to_vector(str(i), proj, band_info, startdate, enddate)
         
         converted.append(g)
         count=count+1
         
-    print('Finished')
     return (converted)
     
 if __name__ == "__main__": 

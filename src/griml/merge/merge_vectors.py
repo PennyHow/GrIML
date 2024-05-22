@@ -4,29 +4,24 @@
 import geopandas as gpd
 import pandas as pd
 from glob import glob
+from griml.load import load
 
-def merge_vectors(feature_list, method_list, collection_list, start_date_list,
-                  end_date_list, proj='EPSG:3413'):
+def merge_vectors(inlist, outfile=None, proj='EPSG:3413'):
     '''Compile features from multiple processings into one geodataframe
 
     Parameters
     ----------
-    feature_list : list
-        List of shapely features
-    method_list : list
-        List of strings denoting processing method
-    collection_list : list
-        List of strings denoting dataset collection
-    date_list : list
-        List of start and end date for processing
+    inlist : list
+        List of files or geopandas.dataframe.DataFrame objects to merge
 
     Returns
     -------
-    all_gdf : geopandas.GeoDataFrame
+    all_gdf : geopandas.dataframe.GeoDataFrame
         Compiled goedataframe
     '''
+    feature, method, collection, start_date, end_date = _load_all(inlist)
     dfs=[]
-    for a,b,c,d,e in zip(feature_list, method_list, collection_list, start_date_list, end_date_list):
+    for a,b,c,d,e in zip(feature, method, collection, start_date, end_date):
         if a is not None:
             
             #Construct geodataframe with basic metadata
@@ -48,10 +43,51 @@ def merge_vectors(feature_list, method_list, collection_list, start_date_list,
 
     all_gdf['area_sqkm'] = all_gdf['geometry'].area/10**6
     all_gdf['length_km'] = all_gdf['geometry'].length/1000
-    all_gdf = gpd.GeoDataFrame(all_gdf, geometry=all_gdf.geometry, 
-                                crs=proj)
+    # all_gdf = gpd.GeoDataFrame(all_gdf, geometry=all_gdf.geometry, 
+    #                             crs=proj)
+
+    if outfile is not None:    
+        print('Saving file...')
+        all_gdf.to_file(outfile)
+        print('Saved to '+str(outfile))
+          
     return all_gdf
 
+def _load_all(inlist):
+    '''Load info from all features for merging
+
+    Parameters
+    ----------
+    inlist : list
+        List of files or geodataframe.dataframe.DataFrame objects to load info
+        from
+
+    Returns
+    -------
+    feature_list : list
+        List of shapely features
+    method_list : list
+        List of strings denoting processing method
+    collection_list : list
+        List of strings denoting dataset collection
+    date_list : list
+        List of start and end date for processing
+    ''' 
+    features=[]
+    methods=[]
+    sources=[]
+    starts=[]
+    ends=[]
+    
+    for f in inlist:
+        i = load(f)
+        features.append(list(i['geometry']))
+        methods.append(list(i['method']))
+        sources.append(list(i['source']))
+        starts.append(list(i['startdate']))
+        ends.append(list(i['enddate']))
+    
+    return features, methods, sources, starts, ends
 
 def _dissolve_vectors(gdf):
     '''Dissolve overlapping polygons in a Pandas GeoDataFrame
@@ -72,26 +108,6 @@ def _dissolve_vectors(gdf):
     return gdf2
 
 if __name__ == "__main__": 
-    indir = "/home/pho/python_workspace/GrIML/other/iml_2017/test/*.shp"
-    outfile = "/home/pho/python_workspace/GrIML/other/iml_2017/merged_vectors/griml_2017_inventory.shp"
-    features=[]
-    methods=[]
-    sources=[]
-    starts=[]
-    ends=[]
-    
-    for f in list(glob(indir)):
-        i = gpd.read_file(f)
-    
-        features.append(list(i['geometry']))
-        methods.append(list(i['method']))
-        sources.append(list(i['source']))
-        starts.append(list(i['startdate']))
-        ends.append(list(i['enddate']))
-    vectors = merge_vectors(features, methods, sources, starts, ends)
-    
-    # features.append(i)
-    # vectors = pd.concat(features, ignore_index=True)
-    
-
-    vectors.to_file(outfile)
+        infile1 = '../test/test_merge_1.shp'
+        infile2 = '../test/test_merge_2.shp'               
+        vectors = merge_vectors([infile1,infile2]) 

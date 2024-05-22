@@ -7,3 +7,4 @@ other/hagen_brae/*
 other/lake_temperature/*
 other/south_greenland/*
 src/griml/examples/*
+*.drawio

@@ -19,45 +19,25 @@ class TestGrIML(unittest.TestCase):
         end='20170831'
         
         infile = os.path.join(os.path.dirname(griml.__file__),'test/test_north_greenland.tif')
-        convert([infile], None, proj, band_info, start, end) 
+        convert([infile], proj, band_info, start, end) 
 
     def test_filter(self):
         '''Test vector filtering'''  
-        infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_icemask.shp')
-        margin_buff = gpd.read_file(infile1)
-
-        infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_filter.shp')       
-        filter_vectors(infile2, None, margin_buff)
+        infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_filter.shp') 
+        infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_icemask.shp')      
+        filter_vectors([infile1], infile2)
 
     def test_merge(self):
         '''Test vector merging'''
         infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_1.shp')  
-        merge1 = gpd.read_file(infile1) 
-
-        infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')          
-        merge2 = gpd.read_file(infile2)          
-        
-        features=[]
-        methods=[]
-        sources=[]
-        starts=[]
-        ends=[]    
-        for infile in [merge1, merge2]:
-            features.append(list(infile['geometry'])) 
-            methods.append(list(infile['method'])) 
-            sources.append(list(infile['source'])) 
-            starts.append(list(infile['startdate'])) 
-            ends.append(list(infile['enddate'])) 
-        vectors = merge_vectors(features, methods, sources, starts, ends) 
+        infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')                  
+        merge_vectors([infile1,infile2]) 
 
     def test_metadata(self):
         '''Test metadata population'''
-        infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')          
-        iml = gpd.read_file(infile1) 
-   
+        infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')             
         infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_placenames.shp')              
-        names = gpd.read_file(infile2)
-        add_metadata(iml, names, None)
+        add_metadata(infile1, infile2)
 
 if __name__ == "__main__":  
     unittest.main()
