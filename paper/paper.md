@@ -24,7 +24,7 @@ bibliography: paper.bib
 
 The `GrIML` Python package is for the post-processing of classified water bodies from satellite imagery. Initial rasterised binary classifications denoting water bodies can be inputted to `GrIML` to convert, filter and merge into a cohesive ice marginal lake vector dataset, populated with useful metadata and analysed with relevant statistical information (\autoref{fig:workflow}).
 
-![An overview of the GrIML Python package workflow \label{fig:workflow}](https://github.com/PennyHow/GrIML/blob/joss-paper/other/reporting/figures/griml_workflow_without_gee.png?raw=true)
+![An overview of the GrIML Python package workflow \label{fig:workflow}](https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_workflow_without_gee.png?raw=true)
 
 This package is part of the [ESA GrIML project](https://eo4society.esa.int/projects/griml/) (Investigating Greenland's ice marginal lakes under a changing climate), whose aim is to map and monitor ice marginal lakes across Greenland through a series of annual ice marginal lake inventories (2016-2023). This workflow was used to make the inventory series, and will continue to be used to generate inventories in the future.
 
