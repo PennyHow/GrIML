@@ -28,8 +28,8 @@ def convert(indir, proj, band_info, startdate, enddate, outdir=None):
         # Convert raster to vector
         if outdir is not None:
             outfile = str(Path(outdir).joinpath(Path(i).stem+'.shp'))
-            g = raster_to_vector(str(i), proj, band_info, startdate, enddate, None)
-            print('Saved to '+str(Path(outfile).name))
+            g = raster_to_vector(str(i), proj, band_info, startdate, enddate, outfile)
+            print('Saved to '+str(Path(outfile)))
             
         else:
             g = raster_to_vector(str(i), proj, band_info, startdate, enddate)
