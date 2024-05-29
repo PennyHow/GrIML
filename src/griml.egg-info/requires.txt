@@ -1,6 +1,0 @@
-earthengine-api
-geopandas
-numpy
-pandas
-scipy
-Shapely
