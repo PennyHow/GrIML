@@ -17,7 +17,6 @@ class TestGrIML(unittest.TestCase):
                      {'b_number':3, 'method':'DEM', 'source':'ARCTICDEM'}] 
         start='20170701' 
         end='20170831'
-        
         infile = os.path.join(os.path.dirname(griml.__file__),'test/test_north_greenland.tif')
         convert([infile], proj, band_info, start, end) 
 
@@ -37,7 +36,8 @@ class TestGrIML(unittest.TestCase):
         '''Test metadata population'''
         infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')             
         infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_placenames.shp')              
-        add_metadata(infile1, infile2)
+        infile3 = os.path.join(os.path.dirname(griml.__file__),'test/greenland_basins_polarstereo.shp') 
+        add_metadata(infile1, infile2, infile3)
 
 if __name__ == "__main__":  
     unittest.main()

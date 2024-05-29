@@ -6,7 +6,7 @@ The **GrIML** processing package for classifying water bodies from satellite ima
 
 ## Installation
 
-The GrIML package can be installed using pip: 
+The GrIML post-processing Python package can be installed using pip: 
 
 ```
 $ pip install griml
@@ -21,16 +21,17 @@ $ pip install .
 
 ## Workflow outline
 
-<img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/griml_workflow.png?raw=true" alt="The GrIML workflow." width="1500" align="aligncenter" />
+<img src="https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_workflow_with_gee.png?raw=true" alt="The GrIML workflow." width="1500" align="aligncenter" />
 
 **GrIML** proposes to examine ice marginal lake changes across Greenland using a multi-sensor and multi-method remote sensing approach to better address their influence on sea level contribution forecasting.
 
-Ice marginal lakes are detected using a remote sensing approach, based on offline workflows developed within the [ESA Glaciers CCI](https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519") (Option 6, An Inventory of Ice-Marginal Lakes in Greenland) ([How et al., 2021](https://www.nature.com/articles/s41598-021-83509-1)). Lake extents are defined through a multi-sensor approach using:
+Ice marginal lakes are detected using a remote sensing approach, based on offline workflows developed within the [ESA Glaciers CCI](https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519") (Option 6, An Inventory of Ice-Marginal Lakes in Greenland) ([How et al., 2021](https://www.nature.com/articles/s41598-021-83509-1)). Initial classifications are performed on Google Earth Engine with the scripts available [here](https://github.com/PennyHow/GrIML/tree/main/gee_scripts). Lake extents are defined through a multi-sensor approach using:
 
 - Multi-spectral indices classification from Sentinel-2 optical imagery
 - Backscatter classification from Sentinel-1 SAR (synthetic aperture radar) imagery
 - Sink detection from ArcticDEM digital elevation models 
 
+Post-processing of these classifications is performed using the GrIML post-processing Python package, including raster-to-vector conversion, filtering, merging, metadata population, and statistical analysis.
 
 ## Project links
 

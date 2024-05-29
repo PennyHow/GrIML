@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def assign_names(gdf, gdf_names, distance=500.0):
+import itertools
+from operator import itemgetter
+
+import geopandas as gpd
+import numpy as np
+import pandas as pd
+
+from scipy.spatial import cKDTree
+from shapely.geometry import Point, LineString, Polygon
+from griml.load import load
+
+def assign_names(gdf, gdf_names):
     '''Assign placenames to geodataframe geometries based on names in another 
     geodataframe point geometries
 
@@ -19,61 +30,40 @@ def assign_names(gdf, gdf_names, distance=500.0):
     gdf : pandas.GeoDataFrame
         Vectors with assigned IDs
     '''  
-    placenames = _compile_names(gdf_names)
-                                    
-    lakename=[]     
-    for i,v in gdf.iterrows():  
-        
-        geom = v['geometry']
-        
-        polynames=[] 
-        for pt in range(len(placenames)):
-            if geom.contains(gdf_names['geometry'][pt]) == True:
-                polynames.append(placenames[pt])  
-                
-        if len(polynames)==0:
-            for pt in range(len(placenames)):  
-                if gdf_names['geometry'][pt].distance(geom) < distance: 
-                    polynames.append(placenames[pt]) 
-            lakename.append(polynames)
-            
-        elif len(polynames)==1:  
-            lakename.append(polynames)    
-            
-        else: 
-            out=[]          
-            for p in polynames:  
-                out.append(p) 
-            lakename.append(out) 
-            
-    lakeid = gdf['unique_id'].tolist()      
-    lakename2 = []     
     
-    for x in gdf.index:        
-        indx = _get_indices(lakeid, x)                                         
-        findname=[]
-        for l in indx:
-            if len(lakename[l])!=0: 
-                findname.append(lakename[l])
-        
-        for i in range(len(indx)):  
-            if len(findname)==0:
-                lakename2.append('')
-        
-            else:                                           
-                unique = set(findname[0])  
-                unique = list(unique)  
-                
-                if len(unique)==1:
-                    lakename2.append(findname[0][0]) 
-                    
-                else:
-                    out2 = ', '
-                    out2 = out2.join(unique) 
-                    lakename2.append(out2) 
-    gdf['placename'] = lakename2
-    return gdf
+    # Load geodataframes
+    gdf1 = load(gdf)
+    gdf2 = load(gdf_names)
+    
+    # Compile placenames into new dataframe
+    names = _compile_names(gdf2)
+    placenames = gpd.GeoDataFrame({"geometry": list(gdf2['geometry']),
+                                   "placename": names})
+                                    
+    # Assign names based on proximity
+    a = _get_nearest_point(gdf1, placenames)
+    return a
 
+
+def _get_nearest_point(gdA, gdB, distance=500.0):
+    '''Return properties of nearest point in Y to geometry in X'''
+    nA = np.array(list(gdA.geometry.centroid.apply(lambda x: (x.x, x.y))))
+    nB = np.array(list(gdB.geometry.apply(lambda x: (x.x, x.y))))
+
+    btree = cKDTree(nB)
+    dist, idx = btree.query(nA, k=1)
+    gdB_nearest = gdB.iloc[idx].drop(columns="geometry").reset_index(drop=True)
+    gdf = pd.concat(
+        [
+            gdA.reset_index(drop=True),
+            gdB_nearest,
+            pd.Series(dist, name='dist')
+        ], 
+        axis=1)
+    
+    gdf.loc[gdf['dist']>=distance, 'placename'] = 'Unknown'
+    gdf = gdf.drop(columns=['dist'])    
+    return gdf
 
 def _get_indices(mylist, value):
     '''Get indices for value in list'''
@@ -95,3 +85,14 @@ def _compile_names(gdf):
                 else:
                     placenames.append(None)
     return placenames 
+
+
+if __name__ == "__main__": 
+
+    # Define file attributes
+    infile = '/home/pho/Desktop/python_workspace/GrIML/src/griml/test/test_merge_1.shp'
+    names = '/home/pho/Desktop/python_workspace/GrIML/other/datasets/placenames/oqaasileriffik_placenames_polarstereo.shp'
+
+
+    # Perform conversion
+    a = assign_names(infile, names)
