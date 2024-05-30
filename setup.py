@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="griml",
-    version="0.1.0",
+    version="0.1.1",
     author="Penelope How",
     author_email="pho@geus.dk",
     description="A workflow for classifying lakes from satellite imagery and compiling lake inventories",
@@ -34,4 +34,9 @@ setuptools.setup(
     package_data={"griml.test": ["*"]},
     python_requires=">=3.8",
     install_requires=['geopandas', 'pandas', 'scipy', 'Shapely', 'rasterio'],
+    entry_points={
+    'console_scripts': [
+        'griml = griml.test.process_cli:griml'
+    ],
+},
 )

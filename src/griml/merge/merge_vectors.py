@@ -108,6 +108,6 @@ def _dissolve_vectors(gdf):
     return gdf2
 
 if __name__ == "__main__": 
-        infile1 = '../test/test_merge_1.shp'
-        infile2 = '../test/test_merge_2.shp'               
-        vectors = merge_vectors([infile1,infile2]) 
+    infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_1.shp') 
+    infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')                  
+    merge_vectors([infile1,infile2])

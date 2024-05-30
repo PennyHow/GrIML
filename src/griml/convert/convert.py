@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from griml.convert import raster_to_vector
-import glob
+import glob, os
 from pathlib import Path
 
 def convert(indir, proj, band_info, startdate, enddate, outdir=None):
@@ -41,9 +41,7 @@ def convert(indir, proj, band_info, startdate, enddate, outdir=None):
     
 if __name__ == "__main__": 
 
-    # Define file attributes
-    indir = list(glob.glob('/home/pho/Desktop/python_workspace/GrIML/other/iml_2017/binary_images/*.tif'))
-    outdir = '/home/pho/Desktop/python_workspace/GrIML/other/iml_2017/vectors/'
+    infile = os.path.join(os.path.dirname(griml.__file__),'test/test_north_greenland.tif')
     proj = 'EPSG:3413'
     band_info = [{'b_number':1, 'method':'VIS', 'source':'S2'},
                  {'b_number':2, 'method':'SAR', 'source':'S1'},
@@ -51,5 +49,4 @@ if __name__ == "__main__":
     start='20170701'
     end='20170831'
 
-    # Perform conversion
-    convert(indir, outdir, proj, band_info, start, end)    
+    convert([infile], proj, band_info, start, end)          

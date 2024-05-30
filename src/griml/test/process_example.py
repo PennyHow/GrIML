@@ -79,7 +79,8 @@ print('Reading from ' + src)
 print('Writing to ' + dest)
 
 infile_names = str(root_dir.joinpath('datasets/placenames/oqaasileriffik_placenames.shp'))
+infile_basins = str(root_dir.joinpath('datasets/drainage_basins/greenland_basins_polarstereo.shp'))
 
-add_metadata(src, infile_names, dest)
+add_metadata(src, infile_names, infile_basins, dest)
 
 print('Finished')
