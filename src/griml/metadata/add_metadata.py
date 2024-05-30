@@ -36,13 +36,7 @@ def add_metadata(iml, names, regions, outfile=None):
         
         
 if __name__ == "__main__": 
-    # indir = "/home/pho/python_workspace/GrIML/other/iml_2017/merged_vectors/griml_2017_inventory.shp"
-    indir = "/home/pho/python_workspace/GrIML/other/iml_2017/inspected_vectors/lakes_all-0000000000-0000037888_filtered.shp"
-
-    
-    infile_names = '/home/pho/python_workspace/GrIML/other/datasets/placenames/oqaasileriffik_placenames.shp'
-    infile_regions = '/home/pho/python_workspace/GrIML/other/datasets/drainage_basins/greenland_basins_polarstereo.shp'
-
-    
-    outfile = "/home/pho/python_workspace/GrIML/other/iml_2017/metadata_vectors/griml_2017_inventory_final.shp"
-    add_metadata(indir, infile_names, infile_regions, outfile)
+    infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_merge_2.shp')
+    infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_placenames.shp')
+    infile3 = os.path.join(os.path.dirname(griml.__file__),'test/greenland_basins_polarstereo.shp')
+    add_metadata(infile1, infile2, infile3)

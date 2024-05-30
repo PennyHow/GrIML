@@ -24,6 +24,8 @@ def parse_griml_arguments():
                         help='File path to ice margin for spatial filtering')
     parser.add_argument('-n', '--names_file', type=str, required=True, 
                         help='File path to placenames file for metadata population')
+    parser.add_argument('-r', '--regions_file', type=str, required=True, 
+                        help='File path to regions/drainage basin file for metadata population')                       
     parser.add_argument('-p', '--proj', type=str, default='EPSG:3413', 
                         required=False, help='Projection (of input and output)')
     parser.add_argument('-s', '--steps', type=str, default='1111', 
@@ -46,7 +48,7 @@ def check_dir(d):
         os.mkdir(d)
      
 
-def griml_process():
+def griml():
     '''Perform processing workflow'''
     args = parse_griml_arguments()
     
@@ -127,6 +129,6 @@ def griml_process():
         print('Reading from ' + src)
         print('Writing to ' + str(dest))
          
-        add_metadata(src, args.names_file, str(dest))
+        add_metadata(src, args.names_file, args.regions_file, str(dest))
 
     print('Finished')

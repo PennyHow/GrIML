@@ -5,6 +5,7 @@ from griml.filter import filter_margin, filter_area
 from griml.load import load
 import geopandas as gpd
 from pathlib import Path
+import os
 
 def filter_vectors(inlist, margin_file, outdir=None, min_area=0.05):
     '''Filter vectors by area and margin proximity
@@ -66,8 +67,6 @@ def filter_vectors(inlist, margin_file, outdir=None, min_area=0.05):
 
 
 if __name__ == "__main__": 
-    infile1 = '../test/test_icemask.shp'
-    margin_buff = gpd.read_file(infile1)
-    
-    infile2 = ['../test/test_filter.shp']       
-    filter_vectors(infile2, margin_buff)
+    infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_filter.shp')
+    infile2 = os.path.join(os.path.dirname(griml.__file__),'test/test_icemask.shp')       
+    filter_vectors([infile1], infile2)

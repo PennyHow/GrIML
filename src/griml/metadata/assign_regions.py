@@ -68,19 +68,4 @@ def _get_nearest_polygon(gdfA, gdfB, gdfB_cols=['subregion'], distance=100000.0)
     gdf.loc[gdf['dist']>=distance, 'subregion'] = 'Unknown'
     
     gdf = gdf.drop(columns=['dist'])   
-    return gdf
-
-
-if __name__ == "__main__": 
-
-    # Define file attributes
-    infile = '/home/pho/Desktop/python_workspace/GrIML/src/griml/test/test_merge_1.shp'
-    regions = '/home/pho/python_workspace/GrIML/other/datasets/drainage_basins/greenland_basins_polarstereo.shp'
-    regions=gpd.read_file(regions)
-
-    regions_dissolve = regions.dissolve(by='subregion')
-    
-
-    # Perform conversion
-    a = assign_regions(infile, regions)
-    
+    return gdf    

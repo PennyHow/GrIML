@@ -84,15 +84,4 @@ def _compile_names(gdf):
                     placenames.append(v['Alternativ'])
                 else:
                     placenames.append(None)
-    return placenames 
-
-
-if __name__ == "__main__": 
-
-    # Define file attributes
-    infile = '/home/pho/Desktop/python_workspace/GrIML/src/griml/test/test_merge_1.shp'
-    names = '/home/pho/Desktop/python_workspace/GrIML/other/datasets/placenames/oqaasileriffik_placenames_polarstereo.shp'
-
-
-    # Perform conversion
-    a = assign_names(infile, names)
+    return placenames

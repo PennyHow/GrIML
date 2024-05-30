@@ -69,12 +69,10 @@ def is_geo_object(typ):
     else:
         return False
         
-if __name__ == "__main__": 
-    infile1 = '../test/test_icemask.shp'
+if __name__ == "__main__":
+
+    infile1 = os.path.join(os.path.dirname(griml.__file__),'test/test_icemask.shp') 
     test1 = load(infile1)
     
     g = gpd.read_file(infile1)
     test2 = load(g)
-
-    infile2 = '../test/test_icemsak.shp'
-    test2 = load(infile2)
