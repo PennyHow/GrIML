@@ -20,13 +20,14 @@ bibliography: paper.bib
 
 ---
 
+
 # Summary
 
 The `GrIML` Python package is for the post-processing of classified water bodies from satellite imagery. Initial rasterised binary classifications denoting water bodies can be inputted to `GrIML` to convert, filter and merge into a cohesive ice marginal lake vector dataset, populated with useful metadata and analysed with relevant statistical information (\autoref{fig:workflow}).
 
 ![An overview of the GrIML Python package workflow \label{fig:workflow}](https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_workflow_without_gee.png?raw=true)
 
-This package is part of the [ESA GrIML project](https://eo4society.esa.int/projects/griml/) (Investigating Greenland's ice marginal lakes under a changing climate), whose aim is to map and monitor ice marginal lakes across Greenland through a series of annual ice marginal lake inventories (2016-2023). This workflow was used to make the inventory series, and will continue to be used to generate inventories in the future.
+This package is part of the [ESA GrIML project](https://eo4society.esa.int/projects/griml/) (Investigating Greenland's ice marginal lakes under a changing climate), whose aim is to map and monitor ice marginal lakes across Greenland through a series of annual ice marginal lake inventories (2016-2023). In 2017, 3347 ice marginal lakes were identified in Greenland along the ice margin [@how_greenland-wide_2021;wiesmann_2017_2021]. Globally, these ice marginal lakes hold up to 0.43 mm of sea level equivalent, which could have a marked impact on future predictions [@shugar_rapid_2020;@carrivick_ice-marginal_2022]. Therefore, they need to be monitored to understand how changes in ice marginal lake water storage affect melt contribution, and how their dynamics evolve under a changing climate. The GrIML workflow was used to make the 2017-2023 inventory series, and will continue to be used to generate inventories in the future.
 
 
 # Statement of need
@@ -38,31 +39,18 @@ This package is part of the [ESA GrIML project](https://eo4society.esa.int/proje
 3. Showcase a transparent workflow that, in turn, produces an open and reproducible ice marginal lake dataset that adheres to the FAIR principles [@wilkinson_fair_2016]
 4. Produce inventories that map the areal extent and frequency of ice marginal lakes across Greenland, which demonstrate ice marginal lake evolution under a changing cliamte
 
-
-- Many different approaches to classifying ice marginal lakes [@shugar_rapid_2020;@rick_dam_2022]
-- Previously this workflow was a closed method [@how_greenland-wide_2021]
-
-
-Sea level is predicted to rise drastically by 2100, with significant contribution from the melting of the Greenland Ice Sheet (GrIS). In these predictions, melt runoff is assumed to contribute directly to sea level change, with little consideration for meltwater storage at the terrestrial margin of the ice sheet; such as ice marginal lakes. 
-
-In 2017, 3347 ice marginal lakes were identified in Greenland along the ice margin ([How et al., 2021](https://www.nature.com/articles/s41598-021-83509-1), see map figure for all mapped lakes). Globally, these ice marginal lakes hold up to 0.43 mm of sea level equivalent, which could have a marked impact on future predictions ([Shugar et al., 2021](https://www.nature.com/articles/s41558-020-0855-4)). Therefore, they need to be monitored to understand how changes in ice marginal lake water storage affect melt contribution, and how their dynamics evolve under a changing climate.
-
-`GrIML` proposes to examine ice marginal lake changes across Greenland using a multi-sensor and multi-method remote sensing approach to better address their influence on sea level contribution forecasting.
-
-1. Greenland-wide inventories of ice marginal lakes will be generated for selected years during the satellite era, building upon established classification methods in a unified cloud processing workflow
-2. Detailed time-series analysis will be conducted on chosen ice marginal lakes to assess changes in their flooding dynamics; focusing on lakes with societal and scientific importance
-3. The findings from this work will be validated against in situ observations - namely hydrological measurements and terrestrial time-lapse images - to evaluate whether the remote sensing workflow adequately captures ice marginal lake dynamics
+There have been many different approaches to classifying ice marginal lakes with remote sensing techniques [@shugar_rapid_2020;@rick_dam_2022]. Packages exist for handling satellite and spatial data, such as GrIML's two key dependencies, Geopandas [@kelsey_geopandas_2020] and Rasterio [@gillies_rasterio_2019], as well as others (e.g. SentinelHub, Google Earth Engine). Remote sensing object classification and post-processing routines are usually available in connection with scientific publications, however, few are available as open, deployable packages. The GrIML post-processing Python package addresses this gap, for the benefit of the future generation of ice marginal lake inventories and for others in the scientific community to adapt and use themselves.
 
 
 # Usage
 
-![The GrIML workflow](https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/griml_workflow.png?raw=true)
 
-Ice marginal lakes are detected using a remote sensing approach, based on offline workflows developed within the [ESA Glaciers CCI](https://catalogue.ceda.ac.uk/uuid/7ea7540135f441369716ef867d217519") (Option 6, An Inventory of Ice-Marginal Lakes in Greenland) ([How et al., 2021](https://www.nature.com/articles/s41598-021-83509-1)). Lake extents are defined through a multi-sensor approach using:
+![The GrIML Python package structure \label{fig:workflow}](https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_package_structure.png?raw=true)
 
-- Multi-spectral indices classification from Sentinel-2 optical imagery
-- Backscatter classification from Sentinel-1 SAR (synthetic aperture radar) imagery
-- Sink detection from ArcticDEM digital elevation models 
+- Installation overview
+- Basic structure, steps put into separate modules, flexible data loading
+- Analysis functionality
+
 
 # Acknowledgements
 
