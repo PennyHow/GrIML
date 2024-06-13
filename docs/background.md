@@ -4,7 +4,18 @@ The **GrIML** processing package is for classifying water bodies from satellite 
 
 **Project aim:** To examine ice marginal lake changes across Greenland using a multi-method and multi-sensor remote sensing approach, refined with in situ validation.
 
-## Motivation
+## Package structure
+
+The **GrIML** post-processing chain follows a linear workflow. Initial rasterised binary classifications denoting water bodies can be inputted to **convert**, **filter** and **merge** into a cohesive ice marginal lake vector dataset, populated with useful **metadata** and analysed with relevant **statistical information**.
+
+<img src="https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_workflow_without_gee.png?raw=true" align="center", width="400">
+
+Each of these post-processing steps is contained within GrIML's modules, and called in turn to perform the entire processing chain. The `griml()` function invokes all post-processing steps.
+
+<img src="https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_package_structure.png?raw=true" align="center", width="400">
+
+
+## Project motivation
 
 <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-021-83509-1/MediaObjects/41598_2021_83509_Fig1_HTML.png?raw=true" align="right" width="400">
 
@@ -21,7 +32,7 @@ In 2017, 3347 ice marginal lakes were identified in Greenland along the ice marg
 3. The findings from this work will be validated against in situ observations - namely hydrological measurements and terrestrial time-lapse images - to evaluate whether the remote sensing workflow adequately captures ice marginal lake dynamics
 
 
-## Methodology
+### Methodology
 
 <img src="https://github.com/PennyHow/pennyhow.github.io/blob/master/assets/images/griml_workflow.png?raw=true" alt="The GrIML workflow." width="1500" align="aligncenter" />
 
@@ -32,12 +43,12 @@ Ice marginal lakes are detected using a remote sensing approach, based on offlin
 - Sink detection from ArcticDEM digital elevation models 
 
 
-## Reporting
+### Reporting
 
 Bi-monthly reports of GrIML's progress are available [here](https://github.com/PennyHow/GrIML/tree/main/other/reporting).
 
 
-## Project links
+### Project links
 
 - ESA [project outline](https://eo4society.esa.int/projects/griml/) and [fellow information](https://eo4society.esa.int/lpf/penelope-how/)
 

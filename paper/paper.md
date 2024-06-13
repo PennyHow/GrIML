@@ -44,11 +44,10 @@ There have been many different approaches to classifying ice marginal lakes with
 
 # Usage
 
-
-![The GrIML Python package structure \label{fig:workflow}](https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_package_structure.png?raw=true)
+![The GrIML Python package structure \label{fig:structure}](https://github.com/PennyHow/GrIML/blob/main/other/reporting/figures/griml_package_structure.png?raw=true)
 
 - Installation overview
-- Basic structure, steps put into separate modules, flexible data loading
+- Basic structure (\autoref{fig:structure}), steps put into separate modules, flexible data loading
 - Analysis functionality
 
 
